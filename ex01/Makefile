@@ -17,3 +17,5 @@ clean :
 
 fclean : clean
 	rm -f ${NAME}
+push :
+	git add . && git commit -m "push" && git push
