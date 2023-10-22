@@ -1,7 +1,7 @@
 
 NAME = phonebook
 
-SRC = phonebook.cpp add.cpp search.cpp
+SRC = phonebook.cpp add.cpp search.cpp class.cpp
 
 OBJ = {SRC  .c = .o}
 

@@ -1,27 +1,58 @@
 # include "phonebook.hpp"
 
-void search(contact *contacts)
+void    put_str(std::string str)
 {
-    int i = 0;
-
-    std::string str;
-    while (str.empty())
+    unsigned long i = 0;
+    if (str.length() >= 10)
     {
-        std::cout<<"give me a name\n";
-        std::cin>>str;
-    }
-    while (i < 8)
-    {
-        if (str == contacts[i].first_name)
+        while (i < 9)
         {
-            std::cout << "first name: "<<std::cout<<contacts[i].first_name<<std::endl;
-            std::cout << "last name: "<<std::cout<<contacts[i].last_name<<std::endl;
-            std::cout << "nickname name: "<<std::cout<<contacts[i].nickname<<std::endl;
-            std::cout << "darkest secret: "<<std::cout<<contacts[i].darkest_secret<<std::endl;
-            std::cout << "number: "<<std::cout<<contacts[i].number<<std::endl;
-            break;
+            std::cout<<str[i];
+            i++;
         }
-        i++;
+        std::cout<<".|";
+        return ;
     }
+    i = 0;
+    if (str.length() < 10)
+    {
+        while(i < (10 - str.length()))
+        {
+            std::cout <<" ";
+            i++;
+        }
+    }
+    std::cout<<str<<"|";
 }
 
+void search(contact *contacts , int indice)
+{
+    int i = 0;
+    int in = -1;
+
+    std::cout<<"index|first name| last name| nick name\n";
+    std::cout<<"-----|----------|----------|----------\n";
+    if (indice >= 3)
+        indice = 3;
+    if (indice == 0)
+        return ;
+    while (i < indice)
+    {
+        std::cout<<"    "<<i<<"|";
+        put_str(contacts[i].get_first());
+        put_str(contacts[i].get_last());
+        put_str(contacts[i].get_nickname());
+        std::cout<<std::endl;
+        i++;
+    }
+    while (in < 0 || in >= indice)
+    {
+        std::cout<<"give me an indice\n";
+        std::cin>>in;
+    }
+    std::cout << "first name: "<<contacts[in].get_first()<<std::endl;
+    std::cout << "last name: "<<contacts[in].get_last()<<std::endl;
+    std::cout << "nickname name: "<<contacts[in].get_nickname()<<std::endl;
+    std::cout << "darkest secret: "<<contacts[in].get_secret()<<std::endl;
+    std::cout << "number: "<<contacts[in].get_number()<<std::endl;
+}

@@ -3,32 +3,43 @@
 void    add(contact *contacts,int indice)
 {
     int i=indice;
+    std::string str;
 
-    if (indice>=8)
-        i=0;
-    while(contacts[i].first_name.empty())
+    if (indice>=3)
+        i = indice - (3 * (indice / 3));
+    std::cout<<"i ="<<i<<"indice = "<<indice<<std::endl;
+    while(str.empty())
     {
         std::cout<<"tap the first name\n";
-        std::cin>>contacts[i].first_name;
+        std::cin>>str;
+        contacts[i].set_first(str);
     }
-    while(contacts[i].last_name.empty())
+    str="";
+    while(str.empty())
     {
         std::cout<<"tap the last name\n";
-        std::cin>>contacts[i].last_name;
+        std::cin>>str;
+        contacts[i].set_last(str);
     }
-    while(contacts[i].nickname.empty())
+    str="";
+    while(str.empty())
     {
         std::cout<<"tap the nickname\n";
-        std::cin>>contacts[i].nickname;
+        std::cin>>str;
+        contacts[i].set_nickname(str);
     }
-    while(contacts[i].darkest_secret.empty())
+    str="";
+    while(str.empty())
     {
         std::cout<<"tap the darkest secret\n";
-        std::cin>>contacts[i].darkest_secret;
+        std::cin>>str;
+        contacts[i].set_secret(str);  
     }
-    while(contacts[i].number.empty())
+    str="";
+    while(str.empty())
     {
-        std::cout<<"tap the darkest secret\n";
-        std::cin>>contacts[i].number;
+        std::cout<<"tap the number\n";
+        std::cin>>str;
+        contacts[i].set_number(str);  
     }
 }

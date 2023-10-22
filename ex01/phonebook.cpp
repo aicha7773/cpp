@@ -3,10 +3,11 @@
 int main()
 {
     std::string str;
-    contact contacts[8];
+    contact contacts[3];
     int indice=0;
     while (1)
     {
+        std::cout << "give an order: ";
         std::cin>>str;
         if (str == "ADD")
         {
@@ -14,13 +15,8 @@ int main()
             indice++;
         }
         else if(str == "SEARCH")
-            search(contacts);
+            search(contacts, indice);
         else if (str == "EXIT")
             break;
-        else
-        {
-            std::cout << "there is an ERROR !!!!!\n";
-            break;
-        }
     }
 }
