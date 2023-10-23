@@ -28,12 +28,12 @@ void    put_str(std::string str)
 void search(contact *contacts , int indice)
 {
     int i = 0;
-    int in = -1;
+    std::string in="-";
 
     std::cout<<"index|first name| last name| nick name\n";
     std::cout<<"-----|----------|----------|----------\n";
-    if (indice >= 3)
-        indice = 3;
+    if (indice >= 8)
+        indice = 8;
     if (indice == 0)
         return ;
     while (i < indice)
@@ -45,14 +45,18 @@ void search(contact *contacts , int indice)
         std::cout<<std::endl;
         i++;
     }
-    while (in < 0 || in >= indice)
+    while (in[0] < 48 || in[0] >= 48 + indice)
     {
         std::cout<<"give me an indice\n";
         std::cin>>in;
+        if (in.empty())
+            exit(0);
+        in="";
     }
-    std::cout << "first name: "<<contacts[in].get_first()<<std::endl;
-    std::cout << "last name: "<<contacts[in].get_last()<<std::endl;
-    std::cout << "nickname name: "<<contacts[in].get_nickname()<<std::endl;
-    std::cout << "darkest secret: "<<contacts[in].get_secret()<<std::endl;
-    std::cout << "number: "<<contacts[in].get_number()<<std::endl;
+    int inn=in[0] - '0';
+    std::cout << "first name: "<<contacts[inn].get_first()<<std::endl;
+    std::cout << "last name: "<<contacts[inn].get_last()<<std::endl;
+    std::cout << "nickname name: "<<contacts[inn].get_nickname()<<std::endl;
+    std::cout << "darkest secret: "<<contacts[inn].get_secret()<<std::endl;
+    std::cout << "number: "<<contacts[inn].get_number()<<std::endl;
 }
