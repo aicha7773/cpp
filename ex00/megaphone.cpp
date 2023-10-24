@@ -12,13 +12,14 @@ int main(int ac, char **av)
         j=0;
         while(av[i][j])
         {
-            if((av[i][j] >= 'a' && av[i][j] <= 'z'))
-                av[i][j]-=32;
+            if(islower(av[i][j]))
+                av[i][j]=toupper(av[i][j]);
             std::cout<<av[i][j];
             j++;
         }
         i++;
+        std::cout<<" ";
     }
     std::cout<<std::endl;
     return 0;
-}
+}∆∆
