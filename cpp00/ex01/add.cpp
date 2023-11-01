@@ -24,45 +24,45 @@ void    add(contact *contacts,int indice)
     while(str.empty())
     {
         std::cout<<"tap the first name\n";
-        std::cin>>str;
-        if (str.empty())
-            exit(0);
-        contacts[i].set_first(str);
+        std::getline(std::cin, str);
+        // if (str.empty())
+        //     exit(0);
     }
+        contacts[i].set_first(str);
     str = "";
     while(str.empty())
     {
         std::cout<<"tap the last name\n";
-        std::cin>>str;
-        if (str.empty())
-            exit(0);
-        contacts[i].set_last(str);
+         std::getline(std::cin, str);
+        // if (str.eof())
+        //     exit(0);
     }
+        contacts[i].set_last(str);
     str = "";
     while(str.empty())
     {
         std::cout<<"tap the nickname\n";
-        std::cin>>str;
-        if (str.empty())
-            exit(0);
-        contacts[i].set_nickname(str);
+         std::getline(std::cin, str);
+        // if (str.eof())
+        //     exit(0);
     }
+        contacts[i].set_nickname(str);
     str = "";
     while(str.empty())
     {
         std::cout<<"tap the darkest secret\n";
-        std::cin>>str;
-        if (str.empty())
-            exit(0);
-        contacts[i].set_secret(str);
+         std::getline(std::cin, str);
+        // if (str.eof())
+        //     exit(0);
     }
+        contacts[i].set_secret(str);
     str = "";
     while(test(str))
     {
         std::cout<<"tap the number\n";
-        std::cin>>str;
-        if (str.empty())
-            exit(0);
-        contacts[i].set_number(str);
+         std::getline(std::cin, str);
+        // if (str.eof())
+        //     exit(0);
     }
+        contacts[i].set_number(str);
 }
