@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:34:00 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/01 18:01:24 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/02 16:31:26 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,15 @@ void search(contact *contacts , int indice)
         std::cout<<std::endl;
         i++;
     }
-    while (in[0] < 48 || in[0] >= 48 + indice)
+    while (in[0] < 48 || in[0] >= 48 + indice || in.length() != 1)
     {
         in="";
         std::cout<<"give me an indice\n";
         getline(std::cin, in);
-        if (in.empty())
+        if (std::cin)
             exit(0);
     }
-    int inn=in[0] - '0';
+    int inn = in[0] - '0';
     std::cout << "first name: "<<contacts[inn].get_first()<<std::endl;
     std::cout << "last name: "<<contacts[inn].get_last()<<std::endl;
     std::cout << "nickname name: "<<contacts[inn].get_nickname()<<std::endl;

@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:33:54 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/01 18:03:09 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/02 16:52:49 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ std::string readInfo(std::string message)
     {
         std::cout<<message;
         std::getline(std::cin, str);
-        // if (str.empty())
-        //     exit(0);
+        if (std::cin.eof())
+            exit(0);
     }
     return str;
 }
