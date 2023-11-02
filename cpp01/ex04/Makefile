@@ -1,6 +1,6 @@
 NAME = sed
 
-SRC = main.cpp sed.cpp
+SRC = main.cpp sed.cpp writeInFile.cpp
 
 OBJ = {SRC  .c = .o}
 
@@ -9,12 +9,12 @@ CFLAGS = -std=c++98 -Wall -Wextra -Werror #-fsantitize=address -g3
 all : ${NAME}
 
 ${NAME} : ${SRC}
-	c++ ${CFLAGS} ${SRC} -o ${NAME}
+	c++ ${CFLAGS} ${SRC} -o                        ${NAME}
 
 clean :
-	rm -f ${OBJ}
+	rm      -f ${OBJ}
 
 fclean : clean
 	rm -f ${NAME}
 push :
-	git add . && git commit -m "push" && git push
+	 

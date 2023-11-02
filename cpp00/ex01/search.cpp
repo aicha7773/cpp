@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   search.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/01 17:34:00 by aatki             #+#    #+#             */
+/*   Updated: 2023/11/01 18:01:24 by aatki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "phonebook.hpp"
 
 void    put_str(std::string str)
@@ -47,11 +59,11 @@ void search(contact *contacts , int indice)
     }
     while (in[0] < 48 || in[0] >= 48 + indice)
     {
+        in="";
         std::cout<<"give me an indice\n";
-        std::cin>>in;
+        getline(std::cin, in);
         if (in.empty())
             exit(0);
-        in="";
     }
     int inn=in[0] - '0';
     std::cout << "first name: "<<contacts[inn].get_first()<<std::endl;

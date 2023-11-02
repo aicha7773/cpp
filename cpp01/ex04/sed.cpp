@@ -2,21 +2,23 @@
 
 void replace(char **av)
 {
-    std::ifstream inputFile(av[1]);
     std::string s = av[1];
-    std::ofstream outputFile(s.append(".replace"));
-
+    std::string line;
+    std::ifstream inputFile(av[1]);
     if (!inputFile.is_open()) {
         std::cout << "Error: Could not open the file." << std::endl;
         return;
     }
-    std::string word;
-    outputFile << ;
-    while (inputFile >> word)
+    std::ofstream outputFile(s.append(".replace"));
+    if (!outputFile.is_open()) {
+        std::cout << "Error: Could not open the file." << std::endl;
+        return;
+    }
+    while (!inputFile.eof())
     {
-        if (word == av[2])
-            std::cout <<av[3]<< std::endl;
-        std::cout << word << std::endl;
+        getline(inputFile,line);
+        writeInFile(line, outputFile, "rm");//(std::string)av[3]);
     }
     inputFile.close();
+    outputFile.close();
 }

@@ -12,7 +12,7 @@ int main(int ac, char **av)
         j=0;
         while(av[i][j])
         {
-            if(islower(av[i][j]))
+            // if(islower(av[i][j]))
                 av[i][j]=toupper(av[i][j]);
             std::cout<<av[i][j];
             j++;
@@ -22,4 +22,4 @@ int main(int ac, char **av)
     }
     std::cout<<std::endl;
     return 0;
-}∆∆
+}

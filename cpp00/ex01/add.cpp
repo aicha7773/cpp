@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   add.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/01 17:33:54 by aatki             #+#    #+#             */
+/*   Updated: 2023/11/01 18:03:09 by aatki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "phonebook.hpp"
 
 int test(std::string str)
@@ -14,55 +26,32 @@ int test(std::string str)
     return 0;
 }
 
-void    add(contact *contacts,int indice)
+std::string readInfo(std::string message)
 {
-    int i=indice;
     std::string str;
 
-    if (indice >= 8)
-        i = indice - (8 * (indice / 8));
     while(str.empty())
     {
-        std::cout<<"tap the first name\n";
+        std::cout<<message;
         std::getline(std::cin, str);
         // if (str.empty())
         //     exit(0);
     }
-        contacts[i].set_first(str);
-    str = "";
-    while(str.empty())
-    {
-        std::cout<<"tap the last name\n";
-         std::getline(std::cin, str);
-        // if (str.eof())
-        //     exit(0);
-    }
-        contacts[i].set_last(str);
-    str = "";
-    while(str.empty())
-    {
-        std::cout<<"tap the nickname\n";
-         std::getline(std::cin, str);
-        // if (str.eof())
-        //     exit(0);
-    }
-        contacts[i].set_nickname(str);
-    str = "";
-    while(str.empty())
-    {
-        std::cout<<"tap the darkest secret\n";
-         std::getline(std::cin, str);
-        // if (str.eof())
-        //     exit(0);
-    }
-        contacts[i].set_secret(str);
-    str = "";
-    while(test(str))
-    {
-        std::cout<<"tap the number\n";
-         std::getline(std::cin, str);
-        // if (str.eof())
-        //     exit(0);
-    }
-        contacts[i].set_number(str);
+    return str;
+}
+
+void    add(contact *contacts,int indice)
+{
+    std::string num;
+    int i=indice;
+
+    if (indice >= 8)
+        i = indice - (8 * (indice / 8));
+        contacts[i].set_first(readInfo("tap the first name\n"));
+        contacts[i].set_last(readInfo("tap the last name\n"));
+        contacts[i].set_nickname(readInfo("tap the nickname\n"));
+        contacts[i].set_secret(readInfo("tap the darkest secret\n"));
+    while(test(num))
+        num = readInfo("tap the number\n");
+    contacts[i].set_number(num);
 }
