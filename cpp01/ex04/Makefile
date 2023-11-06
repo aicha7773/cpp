@@ -2,19 +2,19 @@ NAME = sed
 
 SRC = main.cpp sed.cpp writeInFile.cpp
 
-OBJ = {SRC  .c = .o}
+OBJ = ${SRC:.cpp=.o}
 
-CFLAGS = -std=c++98 -Wall -Wextra -Werror #-fsantitize=address -g3
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 all : ${NAME}
 
-${NAME} : ${SRC}
-	c++ ${CFLAGS} ${SRC} -o                        ${NAME}
+${NAME} : ${OBJ}
+	c++ ${CPPFLAGS} ${SRC} -o ${NAME}
 
 clean :
-	rm      -f ${OBJ}
+	rm -f ${OBJ}
 
 fclean : clean
 	rm -f ${NAME}
-push :
-	 
+
+re : fclean     all

@@ -2,14 +2,14 @@ NAME = megaphone
 
 SRC = megaphone.cpp
 
-OBJ = {SRC  .c = .o}
+OBJ = ${SRC:.cpp=.o}
 
-CFLAGS = -std=c++98 -Wall -Wextra -Werror
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 all : ${NAME}
 
-${NAME} : ${SRC}
-	c++ ${CFLAGS} ${SRC} -o ${NAME}
+${NAME} : ${OBJ}
+	c++ ${CPPFLAGS} ${SRC} -o ${NAME}
 
 clean :
 	rm -f ${OBJ}
@@ -17,3 +17,4 @@ clean :
 fclean : clean
 	rm -f ${NAME}
 
+re : fclean all

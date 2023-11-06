@@ -1,31 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/02 17:34:09 by aatki             #+#    #+#             */
+/*   Updated: 2023/11/04 15:07:39 by aatki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 
 #include <iostream>
-#include <string>
-#include <fstream>
-#include <string.h>
-#include <string>
-#include <sstream>
+#include <iomanip>
+#include "Contact.hpp"
 
-class contact{
+class PhoneBook{
     private:
-        std::string first_name;
-        std::string last_name;
-        std::string nickname;
-        std::string darkest_secret;
-        std::string number;
+        Contact contacts[8];
     public:
-        void set_first(std::string str);
-        void set_last(std::string str);
-        void set_nickname(std::string str);
-        void set_secret(std::string str);
-        void set_number(std::string str);
-        std::string get_first() const;
-        std::string get_last() const;
-        std::string get_nickname() const;
-        std::string get_secret() const;
-        std::string get_number() const;
+        void C_set_first(int i, std::string str);
+        void C_set_last(int i, std::string str);
+        void C_set_nickname(int i, std::string str);
+        void C_set_secret(int i, std::string str);
+        void C_set_number(int i, std::string str);
+        void printInTable(int indice);
+        void printContact(int indice);
 };
 
-void    add(contact *contacts, int indice);
-void    search(contact *contacts, int indice);
+int    add(PhoneBook &phone, int indice);
+int    search(PhoneBook phone, int indice);
+void    put_str(std::string str);

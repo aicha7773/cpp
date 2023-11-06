@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/03 03:09:47 by aatki             #+#    #+#             */
+/*   Updated: 2023/11/03 03:10:50 by aatki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 
 int main(int ac, char **av)
@@ -12,13 +24,11 @@ int main(int ac, char **av)
         j=0;
         while(av[i][j])
         {
-            // if(islower(av[i][j]))
-                av[i][j]=toupper(av[i][j]);
+            av[i][j]=toupper(av[i][j]);
             std::cout<<av[i][j];
             j++;
         }
         i++;
-        std::cout<<" ";
     }
     std::cout<<std::endl;
     return 0;
