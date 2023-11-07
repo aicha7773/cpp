@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 07:55:56 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/07 08:31:44 by aatki            ###   ########.fr       */
+/*   Created: 2023/11/07 05:36:24 by aatki             #+#    #+#             */
+/*   Updated: 2023/11/07 09:09:13 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
-Zombie* newZombie( std::string name)
+int main()
 {
-    Zombie *ret = new Zombie(name);
-    return ret;
+    Harl h;
+        h.complain("");
 }

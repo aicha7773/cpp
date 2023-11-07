@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 07:55:56 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/07 08:31:44 by aatki            ###   ########.fr       */
+/*   Created: 2023/11/07 05:37:17 by aatki             #+#    #+#             */
+/*   Updated: 2023/11/07 09:03:39 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#pragma once
 
-Zombie* newZombie( std::string name)
+#include <iostream>
+
+
+class Harl
 {
-    Zombie *ret = new Zombie(name);
-    return ret;
-}
+    private:
+    void debug( void );
+    void info( void );
+    void warning( void );
+    void error( void );
+    public:
+    void complain( std::string level );
+};
