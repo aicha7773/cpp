@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 05:41:38 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/09 20:52:30 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/11 15:30:31 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,30 @@ void Harl::warning()
 
 void Harl::error()
 {
-     std::cout <<"This is unacceptable! I want to speak to the manager now."<<std::endl;
+     std::cout << "This is unacceptable! I want to speak to the manager now."<<std::endl;
 }
 
 void Harl::complain( std::string level)
 {
     int i=0;
-    std::string levelPtr[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    void (Harl::*functionPtrs[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-    while(i < 4)
+    std::string levelPtr[] = {"DEBUG", "INFO", "WARNING", "ERROR", "I am not sure how tired I am today..."};
+    while(i < 5)
     {
         if (levelPtr[i] == level)
-            (this->*functionPtrs[i])();
+            break;
         i++;
+    }
+    switch (i + 1) {
+    case 1:
+        debug();
+    case 2:
+        info();
+    case 3:
+        warning();
+    case 4:
+        error();
+        break;
+    case 5:
+        std::cout<<"[ Probably complaining about insignificant problems ]\n";
     }
 }

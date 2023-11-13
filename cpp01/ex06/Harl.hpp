@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 05:36:24 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/09 20:52:48 by aatki            ###   ########.fr       */
+/*   Created: 2023/11/07 05:37:17 by aatki             #+#    #+#             */
+/*   Updated: 2023/11/11 15:37:05 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#pragma once
 
-int main()
+#include <iostream>
+
+class Harl
 {
-    Harl h;
-        h.complain("DEBUG");
-}
+    private:
+    void debug( void );
+    void info( void );
+    void warning( void );
+    void error( void );
+    public:
+    void complain( std::string level );
+};

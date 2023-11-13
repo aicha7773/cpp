@@ -7,6 +7,6 @@ int main(int ac, char **av)
         replace(av);
     }
     else
-        std::cout<<"not exact arument number\n";
+        std::cout<<"not exact argument number\n";
     return 0;
 }

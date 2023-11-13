@@ -12,7 +12,10 @@ void HumanB::setWeapon(Weapon &weap)
 void HumanB::attack()
 {
     if (!WT)
-        return;
+    {
+        std::cout<<"there is no weapon \n";
+        return ;
+    }
     std::cout<<name<<" attacks with their "<<WT->getType()<<std::endl;
 }
 

@@ -1,6 +1,6 @@
-NAME = sed
+NAME = harlFilter
 
-SRC = main.cpp sed.cpp  writeInFile.cpp
+SRC = main.cpp Harl.cpp
 
 OBJ = ${SRC:.cpp=.o}
 

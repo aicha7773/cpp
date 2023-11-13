@@ -1,10 +1,10 @@
-NAME = sed
+NAME = FixedPoint
 
-SRC = main.cpp sed.cpp  writeInFile.cpp
+SRC = main.cpp  Fixed.cpp
 
 OBJ = ${SRC:.cpp=.o}
 
-CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
 
 all : ${NAME}
 

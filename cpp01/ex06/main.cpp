@@ -6,14 +6,18 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 05:36:24 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/09 20:52:48 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/11 15:15:07 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int main()
+int main(int ac, char **av)
 {
     Harl h;
-        h.complain("DEBUG");
+    (void)ac;
+    if (ac == 2)
+        h.complain(av[1]);
+    else
+        std::cout<<"give more arguments\n";
 }
