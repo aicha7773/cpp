@@ -5,20 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 00:15:50 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/13 02:54:35 by aatki            ###   ########.fr       */
+/*   Created: 2023/11/14 05:32:55 by aatki             #+#    #+#             */
+/*   Updated: 2023/11/14 23:18:22 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-int main( void )
+int main()
 {
-    Fixed a;
-    Fixed b( a );
-    Fixed c;
-    c = b;
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
+    FragTrap t("naaadjiya");
+    for(int i = 0; i < 100; i++)
+        t.attack("appah");
+    t.takeDamage(155);
+    t.beRepaired(2);
+    t.highFivesGuys();
+    return 0;
 }

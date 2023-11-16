@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 00:15:53 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/13 02:54:52 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/14 04:35:20 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,22 @@ Fixed::Fixed()
 {
     std::cout<<"Default constructor called\n";
     fixedPoint = 0;
+}
+
+Fixed::Fixed(int const value)
+{
+    std::cout<<"Int constructor called\n";
+    fixedPoint = value << bits;
+}
+
+Fixed::Fixed(float const value)
+{
+    std::cout<<"Float constructor called\n";
+    float Fnum = value;
+    int one = 1;
+    one <<= bits;
+    Fnum*=one;
+    fixedPoint = roundf(Fnum);
 }
 
 Fixed::Fixed(Fixed const & src)
@@ -49,4 +65,26 @@ void Fixed::setRawBits( int const raw )
 {
     std::cout<<"setRawBits member function called\n";
     fixedPoint = raw;
+}
+
+float Fixed::toFloat( void ) const
+{
+    float change = fixedPoint;
+    int one = 1;
+    one <<= bits;
+    change /= one;
+    return change;
+}
+
+int Fixed::toInt( void ) const
+{
+    int change = fixedPoint;
+    change = change >> bits;
+    return change;
+}
+
+std::ostream& operator<< (std::ostream &os, const Fixed &obj)
+{
+    os << obj.toFloat();
+    return os;
 }

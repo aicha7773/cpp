@@ -1,10 +1,10 @@
-NAME = FixedPoint
+NAME =  Serena
 
-SRC = main.cpp  Fixed.cpp
+SRC = main.cpp  ClapTrap.cpp ScavTrap.cpp
 
 OBJ = ${SRC:.cpp=.o}
 
-CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
 
 all : ${NAME}
 

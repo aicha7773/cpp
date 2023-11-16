@@ -5,20 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 00:15:50 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/13 02:54:35 by aatki            ###   ########.fr       */
+/*   Created: 2023/11/14 05:32:55 by aatki             #+#    #+#             */
+/*   Updated: 2023/11/14 06:10:53 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
 
-int main( void )
+int main()
 {
-    Fixed a;
-    Fixed b( a );
-    Fixed c;
-    c = b;
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
+    ClapTrap t("naaadjiya");
+    t.attack("appah");
+    t.takeDamage(2);
+    t.beRepaired(2);
+    return 0;
 }
