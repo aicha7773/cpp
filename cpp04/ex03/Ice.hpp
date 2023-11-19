@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 22:16:34 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/18 02:02:19 by aatki            ###   ########.fr       */
+/*   Created: 2023/11/18 02:38:32 by aatki             #+#    #+#             */
+/*   Updated: 2023/11/19 06:12:14 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once 
-#include <iostream>
+#include "AMateria.hpp"
 
-class Brain
+class Ice : public AMateria
 {
-    private :
-        std::string ideas[100];
-    public :
-        Brain();
-        Brain(Brain const &src);
-        ~Brain();
-        Brain & operator=(Brain const &src);
+    public:
+        Ice();
+        Ice(Ice const &src);
+        Ice const &operator =(Ice const &src);
+        ~Ice();
+        virtual AMateria* clone() const = 0;
+        virtual void use(ICharacter& target);
 };
-
