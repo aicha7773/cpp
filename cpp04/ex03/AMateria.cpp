@@ -6,51 +6,52 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 02:38:17 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/19 04:54:27 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/19 08:56:25 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
-AMateria(std::string const & type)
+AMateria::AMateria(std::string const & type)
 {
     std::cout<<"the AMateria paramitrize constractor\n";
     this->type = type;
 }
 
-AMateria()
+AMateria::AMateria()
 {
     std::cout<<"the AMateria Default constractor\n";
     this->type = "Amateria";
 }
 
-AMateria(AMateria const & src)
+AMateria::AMateria(AMateria const & src)
 {
     std::cout<<"the AMateria copy constractor\n";
-    type = src->type;
+    type = src.type;
 }
 
-~AMateria()
+AMateria::~AMateria()
 {
     std::cout<<"the AMateria destractor\n";
 }
 
-AMateria & operator=(AMateria const & src)
+AMateria & AMateria::operator=(AMateria const & src)
 {
     std::cout<<"the AMateria assiment operator\n";
     if (this != &src)
-        type = src->type;
+        type = src.type;
     return *this;
 }
 
-std::string const & getType() const
+std::string const & AMateria::getType() const
 {
     return type;
 }
 
-virtual AMateria* AMateria::clone() const
+AMateria* AMateria::AMateria::clone() const
 {
-    AMateria* ret = new AMateria;
+    AMateria* ret = new Ice();
     ret->type = type;
     return ret;
 }

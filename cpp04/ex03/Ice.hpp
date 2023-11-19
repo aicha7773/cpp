@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 02:38:32 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/19 06:12:14 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/19 08:56:44 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ class Ice : public AMateria
         Ice(Ice const &src);
         Ice const &operator =(Ice const &src);
         ~Ice();
-        virtual AMateria* clone() const = 0;
+        virtual AMateria* clone() const;
         virtual void use(ICharacter& target);
 };

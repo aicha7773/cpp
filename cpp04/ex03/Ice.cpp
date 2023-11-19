@@ -6,11 +6,12 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 02:38:30 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/19 04:55:08 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/19 09:00:46 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+#include "ICharacter.hpp"
 
 Ice::Ice()
 {
@@ -21,14 +22,14 @@ Ice::Ice()
 Ice::Ice(Ice const &src)
 {
     std::cout<<"the Ice copy constractor\n";
-    type = src->type;
+    type = src.getType();
 }
 
-Ice::Ice const &operator =(Ice const &src)
+Ice const &Ice::operator =(Ice const &src)
 {
     std::cout<<"the Ice assiment operator\n";
     if (this != &src)
-        type = src->type;
+        type = src.getType();
     return *this;
 }
 
@@ -37,14 +38,14 @@ Ice::~Ice()
     std::cout<<"the Ice Default destractor\n";
 }
 
-virtual AMateria* Ice::clone() const
+AMateria* Ice::clone() const
 {
     Ice* ret = new Ice;
     ret->type = type;
     return ret;
 }
 
-virtual void Ice::use(ICharacter& target)
+void Ice::use(ICharacter& target)
 {
-    std::cout<< "* shoots an ice bolt at "<<target->Name<<" *";
+    std::cout<< "* shoots an ice bolt at "<<target.getName()<<" *";
 }

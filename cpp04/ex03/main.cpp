@@ -6,14 +6,13 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 02:38:35 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/19 07:05:16 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/19 08:40:18 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "IMateriaSource.hpp"
-// #include "AMateria.hpp"
 # include "Ice.hpp"
 # include "Cure.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {

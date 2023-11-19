@@ -6,22 +6,22 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 04:06:12 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/19 08:32:53 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/19 08:39:52 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 
-IMateriaSource::IMateriaSource()
+MateriaSource::MateriaSource()
 {
-    std::cout<<"the IMateriaSource Default constractor\n";
+    std::cout<<"the MateriaSource Default constractor\n";
     materia = NULL;
     idx = 0;
 }
 
-IMateriaSource::IMateriaSource(IMateriaSource const &src) : 
+MateriaSource::MateriaSource(MateriaSource const &src) : 
 {
-    std::cout<<"the IMateriaSource copy constractor\n";
+    std::cout<<"the MateriaSource copy constractor\n";
     if (this != &src)
     {
         this->idx = src->idx;
@@ -35,9 +35,9 @@ IMateriaSource::IMateriaSource(IMateriaSource const &src) :
     }
 }
 
-IMateriaSource::IMateriaSource const &operator =(IMateriaSource const &src)
+MateriaSource::MateriaSource const &operator =(MateriaSource const &src)
 {
-    std::cout<<"the IMateriaSource assiment operator\n";
+    std::cout<<"the MateriaSource assiment operator\n";
     if (this != &src)
     {
         this->idx = src->idx;
@@ -52,9 +52,9 @@ IMateriaSource::IMateriaSource const &operator =(IMateriaSource const &src)
     return *this;
 }
 
-IMateriaSource::~IMateriaSource()
+MateriaSource::~MateriaSource()
 {
-    std::cout<<"the IMateriaSource Default destractor\n";
+    std::cout<<"the MateriaSource Default destractor\n";
     if (materia)
         delete materia;
 }

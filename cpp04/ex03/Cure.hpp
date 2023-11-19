@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 02:38:26 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/19 06:12:31 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/19 09:01:50 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ class Cure : public AMateria
         Cure(Cure const &src);
         Cure const &operator =(Cure const &src);
         ~Cure();
-        virtual AMateria* clone() const = 0;
+        virtual AMateria* clone() const;
         virtual void use(ICharacter& target);
 };

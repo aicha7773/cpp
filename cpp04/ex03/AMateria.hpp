@@ -6,13 +6,14 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 02:38:19 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/19 07:12:19 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/19 08:55:59 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
-#include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {
