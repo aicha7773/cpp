@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 01:32:10 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/19 07:50:25 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/19 08:26:50 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,16 @@ Character::Character(Character const &src)
         for (int i=0;i <= idx ;i++)
         {
             delete slot[i];
-            this->slot[i] = src->slot[i];
+            slot[idx] = new AMateria;
+            slot[idx]->type  = src->type;
         }
         delete (this->PtrSaver);
         AMateria *PtrSaver = new[pi + 1];
         for (int i=0;i <= idx ;i++)
-            PtrSaver[i] = PtrSaver [i];
+        {
+            PtrSaver[idx] = new AMateria;
+            PtrSaver[idx]->type  = src->type;
+        }
     }
 }
 
@@ -63,12 +67,16 @@ Character::Character const &operator =(Character const &src)
         for (int i=0;i <= idx ;i++)
         {
             delete slot[i];
-            this->slot[i] = src->slot[i];
+            slot[idx] = new AMateria;
+            slot[idx]->type  = src->type;
         }
         delete (this->PtrSaver);
         AMateria *PtrSaver = new[pi + 1];
         for (int i=0;i <= idx ;i++)
-            PtrSaver[i] = PtrSaver [i];
+        {
+            PtrSaver[idx] = new AMateria;
+            PtrSaver[idx]->type  = src->type;
+        }
     }
     return *this;
 }
@@ -76,22 +84,24 @@ Character::Character const &operator =(Character const &src)
 Character::~Character()
 {
     std::cout<<"the Character Default destractor\n";
-    delete[] slot;
-    delete[] PtrSaver;
+    if (slot)
+        delete[] slot;
+    if (PtrSaver)
+        delete[] PtrSaver;
 }
 
-virtual std::string const & getName()
+virtual std::string const & Character::getName()
 {
     return Name;
 }
 
-virtual void equip(AMateria* m)
+virtual void Character::equip(AMateria* m)
 {
     slot[idx] = m;
     idx ++;
 }
 
-virtual void unequip(int indx)
+virtual void Character::unequip(int indx)
 {
     if (!idx)
         return ;
@@ -111,7 +121,7 @@ virtual void unequip(int indx)
     idx --;
 }
 
-virtual void use(int idnx, Character& target)
+virtual void Character::use(int idnx, Character& target)
 {
     // if(slot[indx].type == "ice")
     slot[indx].use();
