@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 02:54:52 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/16 05:45:38 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/20 09:29:27 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Animal
     public:
         Animal();
         Animal(Animal const &src);
-        ~Animal();
+        virtual ~Animal();
         Animal & operator=(Animal const &src);
         std::string getType() const;
         virtual void makeSound() const;

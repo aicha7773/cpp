@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 02:43:31 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 10:55:20 by aatki            ###   ########.fr       */
+/*   Created: 2023/11/16 02:54:52 by aatki             #+#    #+#             */
+/*   Updated: 2023/11/20 10:57:16 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
+#pragma once
 
-int mainn()
-{
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    delete j;
-    delete i;
-    return 0;
-}
+#include <iostream>
 
-int main()
+class Animal 
 {
-    mainn();
-    system ("leaks WorldOnFire");
-}
+    protected:
+    std::string type;
+    public:
+        Animal();
+        Animal(Animal const &src);
+        virtual ~Animal();
+        Animal & operator=(Animal const &src);
+        std::string getType() const;
+        virtual void makeSound() const = 0;
+};

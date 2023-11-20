@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 02:43:31 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 10:55:20 by aatki            ###   ########.fr       */
+/*   Created: 2023/11/16 03:09:46 by aatki             #+#    #+#             */
+/*   Updated: 2023/11/20 09:25:11 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
+#pragma once
 
-int mainn()
-{
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    delete j;
-    delete i;
-    return 0;
-}
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-int main()
+class Dog : public Animal
 {
-    mainn();
-    system ("leaks WorldOnFire");
-}
+    private:
+        Brain *brain;
+    public:
+        Dog();
+        Dog(Dog const &src);
+        ~Dog();
+        Dog & operator=(Dog const &src);
+        std::string getType() const;
+        Brain *getBrain() const;
+        void makeSound() const;
+};

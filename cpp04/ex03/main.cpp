@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 02:38:35 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 08:22:24 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/20 10:53:31 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ int mainn()
 
 int main()
 {
-    system ("leaks AMateria");
     mainn();
+    system ("leaks AMateria");
 }
