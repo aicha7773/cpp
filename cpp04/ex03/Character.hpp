@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 06:56:03 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/19 09:27:31 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/20 05:42:10 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class Character : public ICharacter
 {
     private:
         std::string Name;
-        AMateria *slot[4];
     public:
+        AMateria *slot[4];
         AMateria **PtrSaver;
         int pi;
         int idx;
@@ -33,5 +33,5 @@ class Character : public ICharacter
         virtual std::string const & getName() const;
         virtual void equip(AMateria* m);
         virtual void unequip(int idx);
-        virtual void use(int indx, ICharacter& target);
+        void use(int indx, ICharacter& target);
 };

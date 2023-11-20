@@ -6,47 +6,51 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 04:06:12 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/19 08:39:52 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/20 05:29:45 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 MateriaSource::MateriaSource()
 {
     std::cout<<"the MateriaSource Default constractor\n";
-    materia = NULL;
+    *materia = NULL;
     idx = 0;
 }
 
-MateriaSource::MateriaSource(MateriaSource const &src) : 
+MateriaSource::MateriaSource(MateriaSource const &src)
 {
     std::cout<<"the MateriaSource copy constractor\n";
     if (this != &src)
     {
-        this->idx = src->idx;
-        this->Name = src->Name;
-        for (int i=0;i <= idx ;i++)
+        this->idx = src.idx;
+        for (int i=0;i <= src.idx ;i++)
         {
             delete materia[i];
-            materia[idx] = new AMateria;
-            materia[idx]->type  = add->type;
+            if (src.materia[i]->getType() == "cure")
+                materia[i] = new Cure();
+            else
+                materia[i] = new Ice();
         }
     }
 }
 
-MateriaSource::MateriaSource const &operator =(MateriaSource const &src)
+MateriaSource const &MateriaSource::operator =(MateriaSource const &src)
 {
     std::cout<<"the MateriaSource assiment operator\n";
     if (this != &src)
     {
-        this->idx = src->idx;
-        this->Name = src->Name;
-        for (int i=0;i <= idx ;i++)
+        this->idx = src.idx;
+        for (int i=0;i <= src.idx ;i++)
         {
             delete materia[i];
-            materia[idx] = new AMateria;
-            materia[idx]->type  = add->type;
+            if (src.materia[i]->getType() == "cure")
+                materia[i] = new Cure();
+            else
+                materia[i] = new Ice();
         }
     }
     return *this;
@@ -55,30 +59,33 @@ MateriaSource::MateriaSource const &operator =(MateriaSource const &src)
 MateriaSource::~MateriaSource()
 {
     std::cout<<"the MateriaSource Default destractor\n";
-    if (materia)
-        delete materia;
+    if (*materia)
+        delete *materia;
 }
 
-virtual void learnMateria(AMateria* add)
+void MateriaSource::learnMateria(AMateria* add)
 {
+    std::cout<<"hello from learnMateria\n";
     if (idx < 4)
     {
-        materia[idx] = new AMateria;
-        materia[idx]->type  = add->type;
+        materia[idx] = add;
         idx ++;
     }
 }
 
-virtual AMateria* createMateria(std::string const & type)
+AMateria* MateriaSource::createMateria(std::string const & type)
 {
+    std::cout<<"hello from createMateria\n";
     if (type == "ice" || type == "cure")
     {
-        for (int i=0; i < 4; i++)
+        for (int i=0; i < idx; i++)
         {
-            if (materia[i]->type == type)
+            if (materia[i]->getType() == type)
             {
-                AMateria ret = new AMateria;
-                ret->type  = materia->type;
+                if (type == "cure")
+                    return (new Cure());
+                else
+                    return (new Ice());
             }
         }
     }

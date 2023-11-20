@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 02:38:19 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/19 08:55:59 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/20 04:12:54 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class AMateria
         AMateria(std::string const & type);
         AMateria(AMateria const & src);
         AMateria();
-        ~AMateria();
-        AMateria & operator=(AMateria const & src);
+        virtual ~AMateria();
+        // AMateria const & operator=(AMateria const & src);
         std::string const & getType() const;
         virtual AMateria* clone() const = 0;
         virtual void use(ICharacter& target);

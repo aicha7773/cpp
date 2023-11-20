@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 01:58:23 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/18 02:04:21 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/20 09:23:08 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,9 @@ Brain & Brain::operator=(Brain const &src)
         ideas = src.ideas;
     }
     return *this;
+}
+
+std::string* Brain::getIdeas()const
+{
+    return ideas;
 }

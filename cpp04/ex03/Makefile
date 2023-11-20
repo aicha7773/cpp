@@ -4,7 +4,7 @@ SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 
 OBJ = ${SRC:.cpp=.o}
 
-CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror #-fsanitize=address -g3
 
 all : ${NAME}
 

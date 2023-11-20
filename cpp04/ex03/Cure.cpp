@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 02:38:22 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/19 09:02:34 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/20 05:17:08 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Cure::Cure()
 {
     std::cout<<"the Cure Default constractor\n";
-    type = "Cure";
+    type = "cure";
 }
 
 Cure::Cure(Cure const &src)
@@ -47,5 +47,5 @@ AMateria* Cure::clone() const
 
 void Cure::use(ICharacter& target)
 {
-    std::cout<<"* heals "<< target.getName() <<"’s wounds *";
+    std::cout<<"* heals "<< target.getName() <<"s wounds *\n";
 }
