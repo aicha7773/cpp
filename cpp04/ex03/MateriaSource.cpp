@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 04:06:12 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 05:29:45 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/20 16:15:31 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
         for (int i=0; i < idx; i++)
         {
             if (materia[i]->getType() == type)
-            {
-                if (type == "cure")
-                    return (new Cure());
-                else
-                    return (new Ice());
-            }
+                return materia[i]->clone();
         }
     }
     return NULL;

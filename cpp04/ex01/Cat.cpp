@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 03:10:49 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 09:35:05 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/20 15:22:29 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Cat::Cat(Cat const &src)  : Animal(src)
     if(this != &src)
     {
         brain = new Brain();
+        
         for (int i=0;i<100;i++)
             src.getBrain()->getIdeas()[i]=src.getBrain()->getIdeas()[i];
     }
@@ -43,7 +44,7 @@ Cat & Cat::operator=(Cat const &src)
     {
         type = src.getType();
         delete brain;
-        brain = new Brain();
+        brain = new Brain(src.brain);
         for (int i=0;i<100;i++)
             src.getBrain()->getIdeas()[i]=src.getBrain()->getIdeas()[i];
     }

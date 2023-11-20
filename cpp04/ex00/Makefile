@@ -10,7 +10,8 @@ all : ${NAME}
 
 ${NAME} : ${OBJ}
 	c++ ${CPPFLAGS} ${SRC} -o ${NAME}
-
+%.o : %.cpp %.hpp
+	c++ ${CPPFLAGS} -c $<
 clean :
 	rm -f ${OBJ}
 

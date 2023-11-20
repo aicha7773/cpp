@@ -6,26 +6,22 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 01:32:10 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 08:37:53 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/20 16:31:29 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-// AMateria **PtrSaveReset(AMateria **from,AMateria *add)
-// {
-// }
-
 void ftDelete(AMateria **tmp, int pip)
 {
     (void)tmp;
-    std::cout<<"pip = "<<pip<<"\n";
     if (pip && tmp)
     {
-        for (int i = 0; i < pip; ++i)
+        for (int i = 0; i < pip; i++)
             delete tmp[i];
-        delete[] tmp;
+        // delete tmp;
     }
+    std::cout<<"pip = "<<pip<<"\n";
 }
 
 Character::Character()
@@ -55,21 +51,12 @@ Character::Character(Character const &src)
     {
         this->idx = src.idx;
         this->Name = src.Name;
-        this->pi = src.pi;
+        this->pi = idx;
+        this->PtrSaver = new AMateria*[idx];
         for (int i=0;i < idx ;i++)
         {
-            if (src.slot[i]->getType() == "cure")
-                slot[i] = new Cure;
-            else
-                slot[i] = new Ice;
-        }
-        this->PtrSaver = new AMateria*[pi];
-        for (int i=0;i < src.pi ;i++)
-        {
-            if (src.slot[i]->getType() == "cure")
-                PtrSaver[idx] = new Cure;
-            else
-                PtrSaver[idx] = new Ice;
+            slot[i] = src.slot[i]->clone();
+            PtrSaver[i] = slot[i];
         }
     }
 }
@@ -81,23 +68,14 @@ Character const & Character::operator =(Character const &src)
     {
         this->idx = src.idx;
         this->Name = src.Name;
+        ftDelete(this->PtrSaver,pi);
+        this->pi = idx;
+        this->PtrSaver = new AMateria*[idx];
         for (int i=0;i < idx ;i++)
         {
-            if (src.slot[i]->getType() == "cure")
-                slot[idx] = new Cure();
-            else
-                slot[idx] = new Ice();
+            slot[i] = src.slot[i]->clone();
+            PtrSaver[i] = slot[i];
         }
-        ftDelete(this->PtrSaver,pi);
-        this->PtrSaver = new AMateria*[pi];
-        for (int i=0;i < src.pi ;i++)
-        {
-            if (src.slot[i]->getType() == "cure")
-                PtrSaver[idx] = new Cure();
-            else
-                PtrSaver[idx] = new Ice();
-        }
-        this->pi = src.pi;
     }
     return *this;
 }
@@ -116,19 +94,22 @@ std::string const & Character::getName() const
 void Character::equip(AMateria* m)
 {
     std::cout<<"hello from equip "<<idx<<"\n";
-    slot[idx] = m;
-    idx ++;
-    int i = 0;
-    AMateria **tmp = new AMateria*[pi + 1];
-    if (pi)
+    if (idx < 4)
     {
-        for (i=0;i < pi ;i++)
-            tmp[i] = PtrSaver[i];
-            delete []PtrSaver;
+        slot[idx] = m->clone();
+        idx ++;
+        int i = 0;
+        AMateria **tmp = new AMateria *[pi + 1];
+        if (pi)
+        {
+            for (i=0;i < pi ;i++)
+                tmp[i] = PtrSaver[i];
+                delete []PtrSaver;
+        }
+        tmp [i] = slot[idx];
+        PtrSaver = tmp;
+        pi ++;
     }
-    tmp [i] = m;
-    PtrSaver = tmp;
-    pi ++;
 }
 
 void Character::unequip(int indx)

@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 02:38:35 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 10:53:31 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/20 16:26:46 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int mainn()
     test.use(1, *bob);
     delete bob;
     delete src;
-    // delete test;
-    // delete me;
     return 0;
 }
 
