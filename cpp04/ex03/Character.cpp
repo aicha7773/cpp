@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 01:32:10 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 16:31:29 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/21 10:10:58 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void ftDelete(AMateria **tmp, int pip)
     {
         for (int i = 0; i < pip; i++)
             delete tmp[i];
-        // delete tmp;
+        delete[] tmp;
     }
     std::cout<<"pip = "<<pip<<"\n";
 }
@@ -94,9 +94,10 @@ std::string const & Character::getName() const
 void Character::equip(AMateria* m)
 {
     std::cout<<"hello from equip "<<idx<<"\n";
-    if (idx < 4)
+    if (idx <= 4)
     {
-        slot[idx] = m->clone();
+        std::cout<<"indes="<<idx<<std::endl;
+        slot[idx-1] = m->clone();
         idx ++;
         int i = 0;
         AMateria **tmp = new AMateria *[pi + 1];
@@ -106,7 +107,7 @@ void Character::equip(AMateria* m)
                 tmp[i] = PtrSaver[i];
                 delete []PtrSaver;
         }
-        tmp [i] = slot[idx];
+        tmp [i] = slot[idx-1];
         PtrSaver = tmp;
         pi ++;
     }

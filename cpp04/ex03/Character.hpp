@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 06:56:03 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 05:42:10 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/21 10:24:12 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class Character : public ICharacter
         int idx;
         Character();
         Character(std::string const & Name);
-        Character(Character const &src);
-        Character const & operator=(Character const &src);
+        Character(const Character  &src);
+        Character const & operator=(const Character &src);
         ~Character();
         virtual std::string const & getName() const;
         virtual void equip(AMateria* m);
