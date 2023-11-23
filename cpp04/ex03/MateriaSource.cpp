@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 04:06:12 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 16:15:31 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/23 15:46:37 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,9 @@ MateriaSource const &MateriaSource::operator =(MateriaSource const &src)
 MateriaSource::~MateriaSource()
 {
     std::cout<<"the MateriaSource Default destractor\n";
-    if (*materia)
-        delete *materia;
+    
+    for(int i=0;i<idx;i++)
+        delete materia[i];
 }
 
 void MateriaSource::learnMateria(AMateria* add)
