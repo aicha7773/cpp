@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 03:08:41 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 09:34:59 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/23 17:23:24 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,7 @@ Dog::Dog(Dog const &src) : Animal(src)
 {
     std::cout<<"an Dog copy constractor called\n";
     if(this != &src)
-    {
-        brain = new Brain();
-        for (int i=0;i<100;i++)
-            src.getBrain()->getIdeas()[i]=src.getBrain()->getIdeas()[i];
-    }
+        brain = new Brain(*src.brain);
 }
 
 Dog::~Dog()
@@ -43,9 +39,7 @@ Dog & Dog::operator=(Dog const &src)
     {
         type = src.getType();
         delete brain;
-        brain = new Brain();
-        for (int i=0;i<100;i++)
-            src.getBrain()->getIdeas()[i]=src.getBrain()->getIdeas()[i];
+        brain = new Brain(*src.brain);
     }
     return *this;
 }
@@ -57,7 +51,7 @@ std::string Dog::getType() const
 
 Brain *Dog::getBrain() const
 {
-    return brain;   
+    return brain;
 }
 
 void Dog::makeSound() const

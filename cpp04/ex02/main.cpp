@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 02:43:31 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 10:55:20 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/23 17:18:54 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int mainn()
 int main()
 {
     mainn();
-    system ("leaks WorldOnFire");
+    // system ("leaks WorldOnFire");
 }

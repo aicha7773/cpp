@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 04:06:17 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/21 10:25:14 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/23 17:40:08 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ class MateriaSource : public IMateriaSource
 {
     private:
         AMateria *materia[4];
-    public:
         int idx;
+    public:
         MateriaSource();
         MateriaSource(const MateriaSource &src);
         ~MateriaSource();

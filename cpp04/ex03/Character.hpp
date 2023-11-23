@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 06:56:03 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/21 10:24:12 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/23 17:40:31 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ class Character : public ICharacter
 {
     private:
         std::string Name;
-    public:
         AMateria *slot[4];
         AMateria **PtrSaver;
         int pi;
         int idx;
+    public:
         Character();
         Character(std::string const & Name);
         Character(const Character  &src);

@@ -6,24 +6,26 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 02:43:31 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 10:55:20 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/23 17:37:00 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-int mainn()
-{
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    delete j;
-    delete i;
-    return 0;
-}
-
 int main()
 {
-    mainn();
-    system ("leaks WorldOnFire");
+    Animal **tab=new Animal*[40];
+    for(int i=0;i<40;i++)
+    {
+        if (i % 2)
+            tab[i]=new Cat;
+        else
+            tab[i]=new Dog;
+    }
+    for(int i=0;i<40;i++)
+    {
+        delete tab[i];
+    }
+    delete [] tab;
 }

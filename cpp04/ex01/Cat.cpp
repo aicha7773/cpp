@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 03:10:49 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 15:22:29 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/23 17:23:34 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ Cat::Cat(Cat const &src)  : Animal(src)
     std::cout<<"an Cat copy constractor called\n";
     if(this != &src)
     {
-        brain = new Brain();
-        
-        for (int i=0;i<100;i++)
-            src.getBrain()->getIdeas()[i]=src.getBrain()->getIdeas()[i];
+        brain = new Brain(*src.brain);
     }
 }
 
@@ -44,9 +41,7 @@ Cat & Cat::operator=(Cat const &src)
     {
         type = src.getType();
         delete brain;
-        brain = new Brain(src.brain);
-        for (int i=0;i<100;i++)
-            src.getBrain()->getIdeas()[i]=src.getBrain()->getIdeas()[i];
+        brain = new Brain(*src.brain);
     }
     return *this;
 }
@@ -58,7 +53,7 @@ std::string Cat::getType() const
 
 Brain *Cat::getBrain() const
 {
-    return brain;   
+    return brain;
 }
 
 void Cat::makeSound() const
