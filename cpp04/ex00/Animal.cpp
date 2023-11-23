@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 03:01:50 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 15:02:06 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/23 20:04:26 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ std::string Animal::getType() const
 
 void Animal::makeSound() const
 {
-    std::cout<<"cats don’t bark\n";
+    std::cout<<"called makesound from the base\n";
 }

@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 02:54:52 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 09:29:27 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/23 20:01:28 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class Animal 
 {
     protected:
-    std::string type;
+        std::string type;
     public:
         Animal();
         Animal(Animal const &src);

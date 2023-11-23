@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 03:11:37 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/23 20:08:39 by aatki            ###   ########.fr       */
+/*   Created: 2023/11/16 02:54:52 by aatki             #+#    #+#             */
+/*   Updated: 2023/11/20 15:06:44 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
 
-class Cat : public Animal
+class WrongAnimal 
 {
-    private:
-        Brain *brain;
+    protected:
+    std::string type;
     public:
-        Cat();
-        Cat(Cat const &src);
-        ~Cat();
-        Cat & operator=(Cat const &src);
+        WrongAnimal();
+        WrongAnimal(WrongAnimal const &src);
+        ~WrongAnimal();
+        WrongAnimal & operator=(WrongAnimal const &src);
         std::string getType() const;
-        Brain *getBrain() const;
-        void makeSound() const ;
+        virtual void makeSound() const;
 };
