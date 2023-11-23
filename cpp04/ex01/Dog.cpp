@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 03:08:41 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/23 17:23:24 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/23 18:23:24 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Dog::~Dog()
     delete brain;
 }
 
-Dog & Dog::operator=(Dog const &src)
+Dog  & Dog::operator=(Dog const &src)
 {
     std::cout<<"an Dog assiment operator called\n";
     if(this != &src)

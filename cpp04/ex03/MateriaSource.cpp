@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 04:06:12 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/23 17:48:19 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/23 18:41:31 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ void MateriaSource::learnMateria(AMateria* add)
     {
         materia[idx] = add->clone();
         idx ++;
-    }
+    } 
+    delete add;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)

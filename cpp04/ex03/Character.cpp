@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 01:32:10 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/23 15:56:08 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/23 19:07:05 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void ftDelete(AMateria **tmp, int pip)
         for (int i = 0; i < pip; i++){
             delete tmp[i];
         }
-        delete[] tmp;
     }
     std::cout<<"pip = "<<pip<<"\n";
 }
@@ -85,6 +84,7 @@ Character::~Character()
 {
     std::cout<<"the Character Default destractor \n";
     ftDelete(this->PtrSaver,pi);
+    delete [] PtrSaver;
 }
 
 std::string const & Character::getName() const
@@ -95,6 +95,8 @@ std::string const & Character::getName() const
 void Character::equip(AMateria* m)
 {
     std::cout<<"hello from equip "<<idx<<"\n";
+    if (!m)
+        return;
     if (idx <= 4)
     {
         std::cout<<"indes="<<idx<<std::endl;
@@ -117,7 +119,7 @@ void Character::equip(AMateria* m)
 void Character::unequip(int indx)
 {
     std::cout<<"hello from unequip\n";
-    if (!idx)
+    if (!idx || indx < 0 || indx > idx - 1) // to check
         return ;
     for (int i=0;i <= idx ;i++)
         slot[indx + i] = slot [indx + i + 1];
@@ -126,7 +128,7 @@ void Character::unequip(int indx)
 
 void Character::use(int indx, ICharacter& target)
 {
-    if (indx > idx - 1)
+    if (indx > idx - 1 || indx < 0)
     {
         std::cout<<"indice is too much\n";
         return ;

@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 02:38:17 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 07:10:15 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/23 18:32:42 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ AMateria* AMateria::AMateria::clone() const
 void AMateria::use(ICharacter& target)
 {
     (void)target;
-    std::cout<<"the AMateria assiment operator\n";
+    std::cout<<"the AMateria assiment operator\n"; // message to show u u are in this class
 }

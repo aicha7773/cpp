@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 02:38:35 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/23 16:17:09 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/23 19:07:54 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ int mainn()
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
+     src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+     src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
     Character me("me");
     AMateria* tmp;
     tmp = src->createMateria("ice");
@@ -26,7 +30,9 @@ int mainn()
     tmp = src->createMateria("cure");
     me.equip(tmp);
     delete tmp;
+    me.unequip(0);
     ICharacter* bob = new Character("bob");
+    me.use(-1, *bob);
     Character test(me);
     test.use(0, *bob);
     test.use(1, *bob);
