@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 03:01:50 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/23 20:04:26 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/24 12:01:42 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ Animal::~Animal()
 Animal & Animal::operator=(Animal const &src)
 {
     std::cout<<"an Animal assiment operator called\n";
-    type = src.type;
+    if (this != &src)
+        type = src.type;
     return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 02:38:22 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 05:17:08 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/25 11:44:51 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ Cure::Cure()
     type = "cure";
 }
 
-Cure::Cure(Cure const &src)
+Cure::Cure(Cure const &src) : AMateria(src)
 {
     std::cout<<"the Cure copy constractor\n";
-    type = src.getType();
 }
 
 Cure const &Cure::operator =(Cure const &src)

@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 01:32:10 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/23 19:07:05 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/25 11:44:32 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 void ftDelete(AMateria **tmp, int pip)
 {
-    (void)tmp;
-    if (pip && tmp)
+    if (pip)
     {
-        for (int i = 0; i < pip; i++){
+        for (int i = 0; i < pip; i++)
             delete tmp[i];
-        }
     }
-    std::cout<<"pip = "<<pip<<"\n";
 }
 
 Character::Character()
@@ -94,12 +91,10 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-    std::cout<<"hello from equip "<<idx<<"\n";
     if (!m)
         return;
     if (idx <= 4)
     {
-        std::cout<<"indes="<<idx<<std::endl;
         slot[idx] = m->clone();
         idx ++;
         int i = 0;
@@ -108,8 +103,8 @@ void Character::equip(AMateria* m)
         {
             for (i=0;i < pi ;i++)
                 tmp[i] = PtrSaver[i];
-                delete []PtrSaver;
         }
+        delete []PtrSaver;
         tmp [i] = slot[idx-1];
         PtrSaver = tmp;
         pi ++;
@@ -118,7 +113,6 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int indx)
 {
-    std::cout<<"hello from unequip\n";
     if (!idx || indx < 0 || indx > idx - 1) // to check
         return ;
     for (int i=0;i <= idx ;i++)
@@ -133,6 +127,5 @@ void Character::use(int indx, ICharacter& target)
         std::cout<<"indice is too much\n";
         return ;
     }
-    std::cout<<"hello from use in character \n";
     slot[indx]->use(target);
 }

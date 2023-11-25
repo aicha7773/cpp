@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 03:08:41 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/23 18:23:24 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/24 21:07:05 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ Dog::Dog(Dog const &src) : Animal(src)
 
 Dog::~Dog()
 {
-    std::cout<<"an Dog Default Destractor called\n";
     delete brain;
+    std::cout<<"an Dog Default Destractor called\n";
 }
 
 Dog  & Dog::operator=(Dog const &src)

@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 03:10:49 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/23 18:19:11 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/24 21:06:34 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ Cat::Cat(Cat const &src)  : Animal(src)
 
 Cat::~Cat()
 {
-    std::cout<<"an Cat Default Destractor called\n";
     delete brain;
+    std::cout<<"an Cat Default Destractor called\n";
 }
 
 Cat & Cat::operator=(Cat const &src)

@@ -4,7 +4,7 @@ SRC = main.cpp Animal.cpp  Dog.cpp Cat.cpp Brain.cpp WrongCat.cpp WrongAnimal.cp
 
 OBJ = ${SRC:.cpp=.o}
 
-CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
 
 all : ${NAME}
 

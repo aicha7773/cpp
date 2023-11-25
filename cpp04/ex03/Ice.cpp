@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 02:38:30 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/20 05:31:09 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/25 11:43:54 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ Ice::Ice()
     type = "ice";
 }
 
-Ice::Ice(Ice const &src)
+Ice::Ice(Ice const &src) : AMateria(src)
 {
     std::cout<<"the Ice copy constractor\n";
-    type = src.getType();
 }
 
 Ice const &Ice::operator =(Ice const &src)

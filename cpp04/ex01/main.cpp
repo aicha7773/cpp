@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 02:43:31 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/23 18:24:11 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/25 11:54:04 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 int main()
 {
-    Animal **tab=new Animal*[40];
-    for(int i=0;i<40;i++)
+    int n=1;
+    Animal  *animal[n];
+    for(int i=0;i<n;i++)
     {
         if (i % 2)
-            tab[i]=new Cat;
+            animal[i]=new Cat;
         else
-            tab[i]=new Dog;
+            animal[i]=new Dog;
     }
-    for(int i=0;i<40;i++)
+    for(int i=0;i<n;i++)
     {
-        delete tab[i];
+        delete animal[i];
     }
-    delete [] tab;
 }

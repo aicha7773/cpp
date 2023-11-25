@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 02:38:17 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/23 18:32:42 by aatki            ###   ########.fr       */
+/*   Updated: 2023/11/25 11:45:36 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ AMateria::~AMateria()
     std::cout<<"the AMateria destractor\n";
 }
 
+AMateria const & AMateria::operator=(AMateria const & src)
+{
+    std::cout<<"the AMateria aasiment operator\n";
+    type = src.type;
+    return *this;
+}
+
 std::string const & AMateria::getType() const
 {
     return type;
@@ -52,5 +59,5 @@ AMateria* AMateria::AMateria::clone() const
 void AMateria::use(ICharacter& target)
 {
     (void)target;
-    std::cout<<"the AMateria assiment operator\n"; // message to show u u are in this class
+    std::cout<<"the AMateria use\n"; // message to sheow u are in this class
 }
