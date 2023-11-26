@@ -5,27 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 02:43:31 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/25 15:57:29 by aatki            ###   ########.fr       */
+/*   Created: 2023/11/26 10:02:43 by aatki             #+#    #+#             */
+/*   Updated: 2023/11/26 10:03:29 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include "Bureaucrat.hpp"
 
 int main()
 {
-    int n=1;
-    Animal  *animal[n];
-    for(int i=0;i<n;i++)
-    {
-        if (i % 2)
-            animal[i]=new Cat;
-        else
-            animal[i]=new Dog;
-    }
-    for(int i=0;i<n;i++)
-    {
-        delete animal[i];
-    }
+    
+    return 0;
 }
