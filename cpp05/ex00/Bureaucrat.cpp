@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:16:41 by aatki             #+#    #+#             */
-/*   Updated: 2023/11/26 11:10:39 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/01 17:53:06 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,28 @@ Bureaucrat::Bureaucrat()
 
 Bureaucrat::Bureaucrat(int grade)
 {
+    int cas =0;
     std::cout<<"the Bureaucrat grade constractor";
-    if (grade < 0 && grade >= 150)
-        this->Grade = grade;
+  
+    try
+    {
+        if (grade < 0)
+            cas = 1;
+        if (grade >= 150)
+            cas = 2;
+    }
+    catch(int cas)
+    {
+        
+    }
+    catch(int cas)
+    {
+        
+    }
+    catch(int cas)
+    {
+        
+    }
 }
 
 Bureaucrat::Bureaucrat(std::string Name) : Name(Name)
