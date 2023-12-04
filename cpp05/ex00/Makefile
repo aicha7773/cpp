@@ -1,6 +1,6 @@
 NAME = Bureaucrat
 
-CPPFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3 -std=c++98
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3 
 
 CXX = c++
 
