@@ -1,10 +1,10 @@
-NAME = Bureaucrat
+NAME = Form
 
-CPPFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3 -std=c++98
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3 
 
 CXX = c++
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = main.cpp Bureaucrat.cpp  Form.cpp
 
 OBJ = {SRC: .cpp=.o}
 
