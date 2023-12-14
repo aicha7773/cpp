@@ -6,24 +6,11 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:02:43 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/04 18:55:13 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/13 21:16:22 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
-// int main()
-// {
-//     try
-//     {
-//         Bureaucrat first("first", 100);
-//     }
-//     catch (std::exception &e)
-//     {
-//         std::cout<<e.what()<<std::endl;
-//     }
-//     return 0;
-// }
 
 
 int main()

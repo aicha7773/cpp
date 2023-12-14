@@ -6,27 +6,28 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:56 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/05 18:13:43 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/14 19:51:18 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form() : name("init"), grade(0)
+Form::Form() : name("init"), grade(0) ,grade2(0)
 {
     std::cout<<"the Form Default constractor\n";
 }
 
-Form::Form(std::string Name, int Grade) : name(Name), grade(Grade)
+Form::Form(std::string Name, int Grade ,int Grade2, bool ind) : name(Name), grade(Grade) ,grade2 (Grade2)
 {
     std::cout<<"the Form paramtraze constractor\n";
     if (grade < 0)
          throw Form::GradeTooHighException();
     if (grade > 150)
          throw Form::GradeTooLowException();
+    indicating = ind;
 }
 
-Form::Form(const  Form & other) : name(other.name) , grade(other.grade)
+Form::Form(const  Form & other) : name(other.name) , grade(other.grade),grade2 (other.grade2)
 {
     std::cout<<"the Form copy constractor\n";
     if (this != &other)
@@ -65,14 +66,26 @@ std::string Form::getName()const
     return name;
 }
 
-int getGrade2()const
+int Form::getGrade2()const
 {
     return grade2;
 }
 
-bool getIndicating()const
+bool Form::getIndicating()const
 {
-    return & indicating;   
+    return  indicating;   
+}
+
+
+void Form::beSigned()
+{
+    
+}
+
+std::ostream & operator << (std::ostream & stream,Form &buro)
+{
+   stream<<buro.getName()<<buro.getGrade()<<buro.getGrade2()<<buro.getIndicating();
+   return stream;
 }
 
 // void Form::incrementGrade()
@@ -89,9 +102,4 @@ bool getIndicating()const
 //         throw Form::GradeTooLowException();
 // }
 
-std::ostream & operator << (std::ostream & stream,Form &buro)
-{
-   stream<<buro.getName()<<buro.getGrade()<<buro.getGrade2()<<buro.getIndicating();
-   return stream;
-}
 

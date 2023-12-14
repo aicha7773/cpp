@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:45 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/05 18:06:35 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/14 19:51:08 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Form
         const int grade2;
     public:
         Form();
-        Form(std::string Name,int grade);
+        Form(std::string Name, int Grade ,int Grade2, bool ind);
         Form(const  Form & other);
         Form & operator =(const  Form & other);
         ~Form();
@@ -39,7 +39,7 @@ class Form
         bool getIndicating()const;
         void incrementGrade();
         void decrementGrade();
-    
+        void beSigned();
 };
 
 std::ostream & operator << (std::ostream & stream,Form &buro);
