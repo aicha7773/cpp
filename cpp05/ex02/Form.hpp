@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:45 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/18 18:26:21 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/19 22:33:40 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <iostream>
 
-class Bureaucrat;
+// class Bureaucrat{};
 
 class Form
 {
