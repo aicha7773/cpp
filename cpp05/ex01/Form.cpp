@@ -6,44 +6,55 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:56 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/18 18:25:38 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/21 23:14:43 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form() : name("init"), grade(0) ,grade2(0)
+Form::Form() : Name("init"), GradeToSigne(1) ,GradeToExecute(1)
 {
     std::cout<<"the Form Default constractor\n";
+    indicating = 0;
 }
 
-Form::Form(std::string Name, int Grade ,int Grade2, bool ind) : name(Name), grade(Grade) ,grade2 (Grade2)
+Form::Form(std::string AName, int AGradeToSigne ,int AGradeToExecute, bool Aind) : Name(AName), GradeToSigne (AGradeToSigne), GradeToExecute(AGradeToExecute) 
 {
-    std::cout<<"the Form paramtraze constractor\n";
-    if (grade < 0)
+    std::cout<<"the Form paramtrize constractor\n";
+    indicating = Aind;
+    if (GradeToSigne < 0)
          throw Form::GradeTooHighException();
-    if (grade > 150)
+    if (GradeToSigne > 150)
          throw Form::GradeTooLowException();
-    indicating = ind;
+    if (GradeToExecute < 0)
+         throw Form::GradeTooHighException();
+    if (GradeToExecute > 150)
+         throw Form::GradeTooLowException();
 }
 
-Form::Form(const  Form & other) : name(other.name) , grade(other.grade),grade2 (other.grade2)
+Form::Form(const  Form & other) : Name(other.Name) , GradeToSigne(other.GradeToSigne), GradeToExecute(other.GradeToExecute)
 {
     std::cout<<"the Form copy constractor\n";
     if (this != &other)
-        *this = other;
+        indicating = other.indicating;
 }
 
 Form & Form::operator=(const  Form & other)
 {
-    if(this != &other)
     std::cout<<"the Form assiment operator constractor\n";
+    if(this != &other)
+    {
+        // indicating = other.indicating;
+        // Name = other.Name;
+        // GradeToExecute = other.GradeToExecute;
+        // GradeToSigne = other.GradeToSigne;
+    }
     return *this;
 }
 
 Form::~Form()
 {
-    std::cout<<"the Form destractor constractor\n";
+    std::cout<<"the Form Default Destractor\n";
 }
 
 const char * Form::GradeTooHighException::what () const throw ()
@@ -56,53 +67,39 @@ const char * Form::GradeTooLowException::what () const throw ()
     return "the grade is so low";
 }
 
-int Form::getGrade()const
+int Form::getGradeToSigne() const
 {
-    return grade;
+    return GradeToSigne;
 }
 
-std::string Form::getName()const
+int Form::getGradeToExecute() const
 {
-    return name;
+    return GradeToExecute;
 }
 
-int Form::getGrade2()const
+std::string Form::getName() const
 {
-    return grade2;
+    return Name;
 }
 
-bool Form::getIndicating()const
+bool Form::getIndicating() const
 {
-    return  indicating;   
+    return  indicating;
 }
 
 void Form::beSigned(Bureaucrat obj)
 {
-    (void)obj;
-    if (obj.getGrade() >= 150)
-        indicating = 1;
-    else
-        throw Form::GradeTooLowException();
+    if(!indicating)
+    {
+        if (obj.getGrade() >= GradeToSigne)
+            indicating = 1;
+        else
+            throw Form::GradeTooLowException();   
+    }
 }
 
 std::ostream & operator << (std::ostream & stream,Form &buro)
 {
-   stream<<buro.getName()<<buro.getGrade()<<buro.getGrade2()<<buro.getIndicating();
+   stream<<buro.getName()<<buro.getGradeToSigne()<<buro.getGradeToExecute()<<buro.getIndicating();
    return stream;
 }
-
-// void Form::incrementGrade()
-// {
-//     grade --;
-//     if (grade < 1)
-//          throw Form::GradeTooHighException();
-// }
-
-// void Form::decrementGrade()
-// {
-//     grade ++;
-//     if (grade > 150)
-//         throw Form::GradeTooLowException();
-// }
-
-

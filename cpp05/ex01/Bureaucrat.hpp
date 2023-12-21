@@ -6,16 +6,15 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:08:10 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/18 18:13:34 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/21 23:15:21 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 #include <exception>
-#include "Form.hpp"
 
-class Form ;
+class Form;
 
 class  Bureaucrat
 {

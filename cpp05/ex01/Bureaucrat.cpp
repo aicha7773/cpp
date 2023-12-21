@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:16:41 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/18 17:46:58 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/21 23:00:08 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void Bureaucrat::signForm(Form obj)
     if(obj.getIndicating())
         std::cout<<Name<<"signed"<<obj.getName()<<std::endl;
     else
-        std::cout<<Name<<"couldn’t sign "<<obj.getName()<<" because <reason>"<<std::endl;
+        std::cout<<Name<<"couldn’t sign "<<obj.getName()<<" because the grade to  signe is too Low"<<std::endl;
 }
 
 std::ostream & operator << (std::ostream & stream,Bureaucrat &buro)

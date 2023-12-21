@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:56 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/19 07:07:26 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/20 21:40:35 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,3 @@ std::ostream & operator << (std::ostream & stream,AForm &buro)
 //     if (grade > 150)
 //         throw AForm::GradeTooLowException();
 // }
-
-

@@ -23,6 +23,3 @@ fclean : clean
 	rm ${NAME}
 
 re : fclean all
-
-AForm.[{h, hpp},cpp], ShrubberyCreationForm.[{h, hpp},cpp], +
-RobotomyRequestForm.[{h, hpp},cpp], PresidentialPardonForm.[{h, hpp},cpp]

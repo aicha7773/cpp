@@ -6,16 +6,15 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:08:10 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/19 22:33:35 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/21 17:00:01 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 #include <exception>
-#include "Form.hpp"
 
-// class Form{};
+class Form;
 
 class  Bureaucrat
 {
@@ -40,7 +39,7 @@ class  Bureaucrat
         std::string getName()const;
         void incrementGrade();
         void decrementGrade();
-        void signForm(Form obj);
+        void signForm(Form &obj);
 };
 
 
