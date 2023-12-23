@@ -6,11 +6,12 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:16:41 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/18 17:46:58 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/22 21:26:36 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -36,7 +37,7 @@ Bureaucrat::Bureaucrat(const  Bureaucrat & other) : Name(other.Name)
 
 Bureaucrat & Bureaucrat::operator=(const  Bureaucrat & other)
 {
-    std::cout<<"the Bureaucrat assiment operator constractor\n";
+    std::cout<<"the Bureaucrat assiment operator constructor\n";
     if(this != &other)
         Grade = other.Grade;
     return *this;
@@ -44,7 +45,7 @@ Bureaucrat & Bureaucrat::operator=(const  Bureaucrat & other)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout<<"the Bureaucrat destractor constractor\n";
+    std::cout<<"the Bureaucrat destructor\n";
 }
 
 const char * Bureaucrat::GradeTooHighException::what () const throw ()
@@ -81,12 +82,12 @@ void Bureaucrat::decrementGrade()
         throw Bureaucrat::GradeTooLowException();
 }
 
-void Bureaucrat::signForm(Form obj)
+void Bureaucrat::signForm(Form &obj)
 {
     if(obj.getIndicating())
-        std::cout<<Name<<"signed"<<obj.getName()<<std::endl;
+        std::cout<<Name<<" signed "<<obj.getName()<<std::endl;
     else
-        std::cout<<Name<<"couldn’t sign "<<obj.getName()<<" because <reason>"<<std::endl;
+        std::cout<<Name<<" couldn’t sign "<<obj.getName()<<" because the grade to  signe is too Low "<<std::endl;
 }
 
 std::ostream & operator << (std::ostream & stream,Bureaucrat &buro)

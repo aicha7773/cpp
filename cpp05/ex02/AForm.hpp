@@ -6,26 +6,27 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:45 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/19 22:34:12 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/22 21:35:11 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <exception>
 
-// class Bureaucrat{};
+class Bureaucrat;
 
 class AForm
 {
     private:
-        const std::string name;
+        const std::string Name;
         bool indicating;
-        const int grade;
-        const int grade2;
+        const int GradeToSigne;
+        const int GradeToExecute;
     public:
         AForm();
-        AForm(std::string Name, int Grade ,int Grade2, bool ind);
+        AForm(std::string Name, int GradeToSigne ,int GradeToExecute, bool indicating);
         AForm(const  AForm & other);
         AForm & operator =(const  AForm & other);
         ~AForm();
@@ -37,13 +38,13 @@ class AForm
         {
             const char * what () const throw ();
         };
-        int getGrade()const;
+        int getGradeToSigne()const;
+        int getGradeToExecute()const;
         std::string getName()const;
-        int getGrade2()const;
         bool getIndicating()const;
         void incrementGrade();
         void decrementGrade();
-        virtual void beSigned(Bureaucrat obj) = 0;
+        virtual void beSigned(Bureaucrat &obj) = 0;
 };
 
 std::ostream & operator << (std::ostream & stream,AForm &buro);

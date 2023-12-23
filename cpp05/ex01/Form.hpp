@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:45 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/21 23:15:30 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/22 19:18:01 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class Form
         bool getIndicating()const;
         void incrementGrade();
         void decrementGrade();
-        void beSigned(Bureaucrat obj);
+        void beSigned(Bureaucrat &obj);
 };
 
 std::ostream & operator << (std::ostream & stream,Form &buro);

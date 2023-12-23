@@ -6,11 +6,12 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:56 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/21 23:14:43 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/22 19:21:09 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form() : Name("init"), GradeToSigne(1) ,GradeToExecute(1)
 {
@@ -87,7 +88,7 @@ bool Form::getIndicating() const
     return  indicating;
 }
 
-void Form::beSigned(Bureaucrat obj)
+void Form::beSigned(Bureaucrat &obj)
 {
     if(!indicating)
     {

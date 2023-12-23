@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:08:10 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/21 23:15:21 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/22 19:18:07 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class  Bureaucrat
         std::string getName()const;
         void incrementGrade();
         void decrementGrade();
-        void signForm(Form obj);
+        void signForm(Form &obj);
 };
 
 

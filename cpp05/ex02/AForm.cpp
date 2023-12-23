@@ -6,44 +6,56 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:56 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/20 21:40:35 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/22 21:24:13 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
-AForm::AForm() : name("init"), grade(0) ,grade2(0)
+AForm::AForm() : Name("init"), GradeToSigne(1) ,GradeToExecute(1)
 {
     std::cout<<"the AForm Default constractor\n";
+    indicating = 0;
 }
 
-AForm::AForm(std::string Name, int Grade ,int Grade2, bool ind) : name(Name), grade(Grade) ,grade2 (Grade2)
+AForm::AForm(std::string AName, int AGradeToSigne ,int AGradeToExecute, bool Aind) : Name(AName), GradeToSigne (AGradeToSigne), GradeToExecute(AGradeToExecute) 
 {
-    std::cout<<"the AForm paramtraze constractor\n";
-    if (grade < 0)
+    std::cout<<"the AForm paramtrize constractor\n";
+    indicating = Aind;
+    if (GradeToSigne < 0)
          throw AForm::GradeTooHighException();
-    if (grade > 150)
+    if (GradeToSigne > 150)
          throw AForm::GradeTooLowException();
-    indicating = ind;
+    if (GradeToExecute < 0)
+         throw AForm::GradeTooHighException();
+    if (GradeToExecute > 150)
+         throw AForm::GradeTooLowException();
 }
 
-AForm::AForm(const  AForm & other) : name(other.name) , grade(other.grade),grade2 (other.grade2)
+AForm::AForm(const  AForm & other) : Name(other.Name) , GradeToSigne(other.GradeToSigne), GradeToExecute(other.GradeToExecute)
 {
     std::cout<<"the AForm copy constractor\n";
     if (this != &other)
-        *this = other;
+        indicating = other.indicating;
 }
 
 AForm & AForm::operator=(const  AForm & other)
 {
-    if(this != &other)
     std::cout<<"the AForm assiment operator constractor\n";
+    if(this != &other)
+    {
+        // indicating = other.indicating;
+        // Name = other.Name;
+        // GradeToExecute = other.GradeToExecute;
+        // GradeToSigne = other.GradeToSigne;
+    }
     return *this;
 }
 
 AForm::~AForm()
 {
-    std::cout<<"the AForm destractor constractor\n";
+    std::cout<<"the AForm Default Destractor\n";
 }
 
 const char * AForm::GradeTooHighException::what () const throw ()
@@ -56,51 +68,39 @@ const char * AForm::GradeTooLowException::what () const throw ()
     return "the grade is so low";
 }
 
-int AForm::getGrade()const
+int AForm::getGradeToSigne() const
 {
-    return grade;
+    return GradeToSigne;
 }
 
-std::string AForm::getName()const
+int AForm::getGradeToExecute() const
 {
-    return name;
+    return GradeToExecute;
 }
 
-int AForm::getGrade2()const
+std::string AForm::getName() const
 {
-    return grade2;
+    return Name;
 }
 
-bool AForm::getIndicating()const
+bool AForm::getIndicating() const
 {
-    return  indicating;   
+    return  indicating;
 }
 
-void AForm::beSigned(Bureaucrat obj)
+void AForm::beSigned(Bureaucrat &obj)
 {
-    (void)obj;
-    if (obj.getGrade() >= 150)
-        indicating = 1;
-    else
-        throw AForm::GradeTooLowException();
+    if(!indicating)
+    {
+        if (obj.getGrade() >= GradeToSigne)
+            indicating = 1;
+        else
+            throw AForm::GradeTooLowException();   
+    }
 }
 
 std::ostream & operator << (std::ostream & stream,AForm &buro)
 {
-   stream<<buro.getName()<<buro.getGrade()<<buro.getGrade2()<<buro.getIndicating();
+   stream<<buro.getName()<<buro.getGradeToSigne()<<buro.getGradeToExecute()<<buro.getIndicating();
    return stream;
 }
-
-// void AForm::incrementGrade()
-// {
-//     grade --;
-//     if (grade < 1)
-//          throw AForm::GradeTooHighException();
-// }
-
-// void AForm::decrementGrade()
-// {
-//     grade ++;
-//     if (grade > 150)
-//         throw AForm::GradeTooLowException();
-// }

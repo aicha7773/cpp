@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:55:33 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/19 22:21:45 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/23 02:59:44 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ ShrubberyCreationForm::ShrubberyCreationForm()
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string name, int grade,int grade2,bool indc)
 {
-    std::cout<<"the ShrubberyCreationForm paramtrize constructor\n";   
+    std::cout<<"the ShrubberyCreationForm paramtrize constructor\n";
+    ofsteam out = 
+    
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &other)

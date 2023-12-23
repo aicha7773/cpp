@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 22:02:55 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/19 22:22:02 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/23 02:58:31 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,14 @@ RobotomyRequestFor::RobotomyRequestFor()
 
 RobotomyRequestFor::RobotomyRequestFor(std::string name, int grade,int grade2,bool indc)
 {
-    std::cout<<"the RobotomyRequestFor paramtrize constructor\n";   
+    std::cout<<"the RobotomyRequestFor paramtrize constructor\n";
+    for (int i=0; i < 100; i++)
+    {
+        if(i % 2)
+            std::cout<<target" has been robotomized successfully.\n";
+        else
+            std::cout<<"the robotomy failed.\n";
+    }
 }
 
 RobotomyRequestFor::RobotomyRequestFor(RobotomyRequestFor &other)
