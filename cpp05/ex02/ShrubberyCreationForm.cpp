@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:55:33 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/25 19:09:13 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/25 19:46:12 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,25 @@ const char *  ShrubberyCreationForm::MaBaaadHiHiHi::what()const throw()
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-    std::string theData ="a tree\n"; //"   ad88                             \n\
-    // d8"                                                ,d     \n\
-    // 88                                                 88\n\
-    // MM88MMM ,adPPYba,  8b,dPPYba,  ,adPPYba, ,adPPYba, MM88MMM  \n\
-    // 88   a8"     "8a 88P'   "Y8 a8P_____88 I8[    ""   88     \n\
-    // 88   8b       d8 88         8PP"""""""  `"Y8ba,    88     \n\
-    // 88   "8a,   ,a8" 88         "8b,   ,aa aa    ]8I   88,    \n\
-    // 88    `"YbbdP"'  88          `"Ybbd8"' `"YbbdP"'   "Y888 "\n\";
+    std::string theData ="       ****\n\
+     ********\n\
+    **  ******\n\
+     *   ******     ******\n\
+         ******   *********\n\
+          ****  *****   ***\n\
+          ***  ***     **\n\
+    *************       *\n\
+  ******************\n\
+ *****   H*****H*******\n\
+ ***     H-___-H  *********\n\
+  ***    H     H      *******\n\
+   **    H-___-H        *****\n\
+     *   H     H         ****\n\
+         H     H         ***\n\
+         H-___-H         **\n\
+         H     H         *\n\
+         H-___-H\n\
+         ALOHA!!";
 
     if(getIndicating() && executor.getGrade() <= getGradeToExecute())
     {

@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:56 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/25 19:10:32 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/25 19:47:16 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void AForm::beSigned(Bureaucrat &obj)
         if (obj.getGrade() <= GradeToSigne)
             indicating = 1;
         else
-            throw AForm::GradeTooLowException();   
+            throw AForm::GradeTooLowException();
     }
 }
 
@@ -100,4 +100,3 @@ std::ostream & operator << (std::ostream & stream,AForm &buro)
    stream<<buro.getName()<<buro.getGradeToSigne()<<buro.getGradeToExecute()<<buro.getIndicating();
    return stream;
 }
-
