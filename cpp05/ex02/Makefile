@@ -5,9 +5,9 @@ CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
 CXX = c++
 
 SRC = main.cpp Bureaucrat.cpp Form.cpp \
-		AForm.cpp PresidentialPardonForm.cpp#  RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+		AForm.cpp PresidentialPardonForm.cpp  RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
-OBJ = {SRC: .cpp=.o}
+OBJ = ${SRC:.cpp=.o}
 
 all : ${NAME}
 
@@ -18,9 +18,9 @@ ${NAME} : ${SRC}
 	${CXX} ${CPPFLAGS}  ${SRC} -c $<
 
 clean :
-	rm ${OBJ}
+	rm -r ${OBJ}
 
 fclean : clean
-	rm ${NAME}
+	rm -r ${NAME}
 
 re : fclean all

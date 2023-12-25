@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:45 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/22 21:27:27 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/25 00:49:02 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Form
         const int GradeToExecute;
     public:
         Form();
-        Form(std::string Name, int GradeToSigne ,int GradeToExecute, bool indicating);
+        Form(std::string Name, int GradeToSigne ,int GradeToExecute);
         Form(const  Form & other);
         Form & operator =(const  Form & other);
         ~Form();

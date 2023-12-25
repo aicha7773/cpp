@@ -6,40 +6,54 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 22:23:54 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/23 02:41:19 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/25 01:29:14 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() :Name("Default"),indicating(0), GradeToSigne(25) , GradeToExecute(5)
+PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonFormm", 72, 45)
 {
     std::cout<<"the PresidentialPardonForm default constructor\n";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Name("Default"),indicating(0), GradeToSigne(25) , GradeToExecute(5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("PresidentialPardonFormm", 72, 45)
 {
-    std::cout<<target<<" has been pardoned by Zaphod Beeblebrox\n";
+    std::cout<<"the PresidentialPardonForm paramtrize constructor\n";
+    this->target = target;
 }
 
-// PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &other)
-// {
-//     std::cout<<"the PresidentialPardonForm copy constructor\n";
-//     if (!other)
-//     {
-//         Name = other.Name;
-//         indicating = other.indicating;
-//         GradeToSigne = 25;
-//         GradeToExecute = 5;
-//     }
-// }
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &other)
+{
+    std::cout<<"the PresidentialPardonForm copy constructor\n";
+    if (this != &other)
+    {
+        target = other.target;
+    }
+}
 
-// PresidentialPardonForm::~PresidentialPardonForm()
-// {
-//     std::cout<<"the PresidentialPardonForm default destructor\n";
-// }
+PresidentialPardonForm::~PresidentialPardonForm()
+{   
+    std::cout<<"the PresidentialPardonForm default destructor\n";
+}
 
-// PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonForm &other)
-// {
-//     std::cout<<"the PresidentialPardonForm assiment operator\n";   
-// }
+PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonForm &other)
+{
+    std::cout<<"the PresidentialPardonForm assiment operator\n";
+    if (this != &other)
+        target = other.target;
+    return *this;
+}
+
+const char *  PresidentialPardonForm::MaBaaadHiHiHi::what()const throw()
+{
+    return "MaBaaaadhiiiihihihihi\n";
+}
+
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const
+{
+    if(getIndicating() && executor.getGrade() <= getGradeToExecute())
+        std::cout<<target<<" has been pardoned by Zaphod Beeblebrox\n";
+    else
+        throw PresidentialPardonForm::MaBaaadHiHiHi();
+}

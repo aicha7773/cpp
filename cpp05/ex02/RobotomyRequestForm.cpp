@@ -6,47 +6,60 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 22:02:55 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/23 02:58:31 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/25 01:32:51 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestFor::RobotomyRequestFor()
+RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequestForm", 72, 45)
 {
-    std::cout<<"the RobotomyRequestFor default constructor\n";
+    std::cout<<"the RobotomyRequestForm default constructor\n";
 }
 
-RobotomyRequestFor::RobotomyRequestFor(std::string name, int grade,int grade2,bool indc)
+RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyRequestForm", 72, 45)
 {
-    std::cout<<"the RobotomyRequestFor paramtrize constructor\n";
-    for (int i=0; i < 100; i++)
+    std::cout<<"the RobotomyRequestForm paramtrize constructor\n";
+    this->target = target;
+}
+
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &other)
+{
+    std::cout<<"the RobotomyRequestForm copy constructor\n";
+    if (this != &other)
     {
-        if(i % 2)
-            std::cout<<target" has been robotomized successfully.\n";
-        else
-            std::cout<<"the robotomy failed.\n";
+        target = other.target;
     }
 }
 
-RobotomyRequestFor::RobotomyRequestFor(RobotomyRequestFor &other)
-{
-    std::cout<<"the RobotomyRequestFor copy constructor\n";
-    if (!other)
-    {
-        name = other.name;
-        indicating = other.indicating;
-        grade = other.grade;
-        grade2 = other.grade2;
-    }
-}
-
-RobotomyRequestFor::~RobotomyRequestFor()
+RobotomyRequestForm::~RobotomyRequestForm()
 {   
-    std::cout<<"the RobotomyRequestFor default destructor\n";
+    std::cout<<"the RobotomyRequestForm default destructor\n";
 }
 
-RobotomyRequestFor & RobotomyRequestFor::operator=(RobotomyRequestFor &other)
+RobotomyRequestForm & RobotomyRequestForm::operator=(RobotomyRequestForm &other)
 {
-    std::cout<<"the RobotomyRequestFor assiment operator\n";   
+    std::cout<<"the RobotomyRequestForm assiment operator\n";
+    if (this != &other)
+        target = other.target;
+    return *this;
+}
+
+const char *  RobotomyRequestForm::MaBaaadHiHiHi::what()const throw()
+{
+    return "MaBaaaadhiiiihihihihi\n";
+}
+
+void RobotomyRequestForm::execute(Bureaucrat const & executor)
+{
+    if(getIndicating() && executor.getGrade() <= getGradeToExecute())
+    {
+        int r = rand();
+        if(r % 2 == 0)
+            std::cout<<target<<" has been robotomized successfully\n";
+        else
+            std::cout<<"the robotomy failed\n";
+    }
+    else
+        throw RobotomyRequestForm::MaBaaadHiHiHi();
 }

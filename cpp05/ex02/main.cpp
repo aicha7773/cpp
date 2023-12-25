@@ -6,45 +6,21 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:02:43 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/18 18:12:58 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/25 01:25:44 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
+	Bureaucrat buro("bbb",5);
+	PresidentialPardonForm p("targ   this");
 	try
 	{
-		try
-		{
-			Bureaucrat test("test", 200);	
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-		Bureaucrat a("a", 150);
-		Bureaucrat b("b", 1);
-
-		std::cout << a <<"   1"<<std::endl;
-		std::cout << b <<"   1"<< std::endl;
-		std::cout << std::endl;
-		
-		a.decrementGrade();
-	
-		b.incrementGrade();
-	
-		std::cout << a <<"   2"<< std::endl;
-		std::cout << b <<"   2"<< std::endl;
-		std::cout << std::endl;
-
-		a.incrementGrade();
-		b.decrementGrade();
-		std::cout << a <<"   3"<< std::endl;
-		std::cout << b <<"   3"<< std::endl;
-		std::cout << std::endl;
+		p.beSigned(buro);
+		p.execute(buro);
 	}
 	catch(const std::exception& e)
 	{

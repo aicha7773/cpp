@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:56 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/22 21:24:13 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/25 01:24:41 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,14 @@ AForm::AForm() : Name("init"), GradeToSigne(1) ,GradeToExecute(1)
     indicating = 0;
 }
 
-AForm::AForm(std::string AName, int AGradeToSigne ,int AGradeToExecute, bool Aind) : Name(AName), GradeToSigne (AGradeToSigne), GradeToExecute(AGradeToExecute) 
+AForm::AForm(std::string AName, int AGradeToSigne ,int AGradeToExecute) : Name(AName), GradeToSigne (AGradeToSigne), GradeToExecute(AGradeToExecute) 
 {
     std::cout<<"the AForm paramtrize constractor\n";
-    indicating = Aind;
-    if (GradeToSigne < 0)
-         throw AForm::GradeTooHighException();
-    if (GradeToSigne > 150)
-         throw AForm::GradeTooLowException();
-    if (GradeToExecute < 0)
-         throw AForm::GradeTooHighException();
-    if (GradeToExecute > 150)
-         throw AForm::GradeTooLowException();
+    if (GradeToSigne < 0 || GradeToExecute < 0)
+        throw AForm::GradeTooHighException();
+    if (GradeToSigne > 150 || GradeToExecute > 150)
+        throw AForm::GradeTooLowException();
+    indicating = false;
 }
 
 AForm::AForm(const  AForm & other) : Name(other.Name) , GradeToSigne(other.GradeToSigne), GradeToExecute(other.GradeToExecute)
@@ -92,7 +88,7 @@ void AForm::beSigned(Bureaucrat &obj)
 {
     if(!indicating)
     {
-        if (obj.getGrade() >= GradeToSigne)
+        if (obj.getGrade() <= GradeToSigne)
             indicating = 1;
         else
             throw AForm::GradeTooLowException();   
