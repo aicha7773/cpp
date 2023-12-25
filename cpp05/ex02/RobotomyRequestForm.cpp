@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 22:02:55 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/25 01:32:51 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/25 18:40:08 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ const char *  RobotomyRequestForm::MaBaaadHiHiHi::what()const throw()
     return "MaBaaaadhiiiihihihihi\n";
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor)
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     if(getIndicating() && executor.getGrade() <= getGradeToExecute())
     {

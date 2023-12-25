@@ -6,12 +6,14 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:54:42 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/25 01:29:29 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/25 19:08:41 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include <string>
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm
 {

@@ -6,12 +6,13 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:16:41 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/22 21:26:36 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/25 19:12:39 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -88,6 +89,19 @@ void Bureaucrat::signForm(Form &obj)
         std::cout<<Name<<" signed "<<obj.getName()<<std::endl;
     else
         std::cout<<Name<<" couldn’t sign "<<obj.getName()<<" because the grade to  signe is too Low "<<std::endl;
+}
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+   try
+   {
+        form.execute(*this);
+   }
+   catch (const std::exception &e)
+   {
+        std::cout<<e.what()<<std::endl;
+   }
+   std::cout<<this->getName()<<" executed "<<form.getName()<<std::endl;
 }
 
 std::ostream & operator << (std::ostream & stream,Bureaucrat &buro)

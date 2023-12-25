@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:56 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/25 01:24:41 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/25 19:10:32 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,3 +100,4 @@ std::ostream & operator << (std::ostream & stream,AForm &buro)
    stream<<buro.getName()<<buro.getGradeToSigne()<<buro.getGradeToExecute()<<buro.getIndicating();
    return stream;
 }
+

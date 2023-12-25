@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:08:10 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/25 00:20:14 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/25 19:13:19 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <exception>
 
 class Form;
+class AForm;
 
 class  Bureaucrat
 {
@@ -40,6 +41,7 @@ class  Bureaucrat
         void incrementGrade();
         void decrementGrade();
         void signForm(Form &obj);
+        void executeForm(AForm const & form);
 };
 
 

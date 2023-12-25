@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:55:33 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/25 01:34:43 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/25 19:09:13 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,17 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm &other)
 {
     std::cout<<"the ShrubberyCreationForm assiment operator\n";
+    if (this != &other)
+        target = other.target;
+    return *this;
 }
 
-const char *  PresidentialPardonForm::MaBaaadHiHiHi::what()const throw()
+const char *  ShrubberyCreationForm::MaBaaadHiHiHi::what()const throw()
 {
     return "MaBaaaadhiiiihihihihi\n";
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const & executor)
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
     std::string theData ="a tree\n"; //"   ad88                             \n\
     // d8"                                                ,d     \n\
@@ -58,9 +61,9 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor)
     // 88   "8a,   ,a8" 88         "8b,   ,aa aa    ]8I   88,    \n\
     // 88    `"YbbdP"'  88          `"Ybbd8"' `"YbbdP"'   "Y888 "\n\";
 
-    if(getIndicating() && executor.getGrade <= getGradeToExecute())
+    if(getIndicating() && executor.getGrade() <= getGradeToExecute())
     {
-        std::ofstream outputFile(target.append("_shrubbery"));
+        std::ofstream outputFile(target + "_shrubbery");
         if (!outputFile.is_open())
         {
             std::cout << "Error: Could not open the file." << std::endl;
@@ -69,5 +72,5 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor)
         outputFile<<theData;
     }
     else
-        throw PresidentialPardonForm::MaBaaadHiHiHi();
+        throw ShrubberyCreationForm::MaBaaadHiHiHi();
 }
