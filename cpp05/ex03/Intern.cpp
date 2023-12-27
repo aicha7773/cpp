@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 04:34:34 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/26 07:14:57 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/27 01:12:54 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,19 @@ Intern& Intern::operator=(Intern &obj)
 
 AForm *Intern::makeForm(std::string theForm, std::string the_target)
 {
-    AForm *form;
-    if(theForm == "ShrubberyCreation")
-        form = new ShrubberyCreationForm(the_target);
-    else if(theForm == "RobotomyRequest")
-        form = new RobotomyRequestForm(the_target);
-    else if(theForm == "PresidentialPardon")
-        form = new PresidentialPardonForm(the_target);
-    else
+    std::string tab[]={"ShrubberyCreation", "RobotomyRequest", "PresidentialPardon"};
+    AForm *ftab[] = {new ShrubberyCreationForm(the_target), new RobotomyRequestForm(the_target), new PresidentialPardonForm(the_target)};
+    for(int i = 0; i < 3; i++)
     {
-        std::cerr<<"there is no form whit this name\n";
-        return NULL;
+        if (tab[i] == theForm)
+        {
+            std::cout<<"Intern creates "<<theForm<<"\n";
+            for(int j=i+1; j < 3; j++)
+                free(ftab[j]);
+            return ftab[i];
+        }
+        free(ftab[i]);
     }
-    std::cout<<"Intern creates "<<theForm<<"\n";
-    return form;
+    std::cout<<"no Form whit this type";
+    return NULL;
 }
