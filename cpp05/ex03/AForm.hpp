@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:45 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/25 00:47:17 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/27 02:35:27 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class AForm
         AForm(std::string Name, int GradeToSigne ,int GradeToExecute);
         AForm(const  AForm & other);
         AForm & operator =(const  AForm & other);
-        ~AForm();
+        virtual ~AForm();
         class GradeTooHighException : public std::exception
         {
             const char * what () const throw ();

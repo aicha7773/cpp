@@ -47,7 +47,7 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(RobotomyRequestForm &other)
 
 const char *  RobotomyRequestForm::MaBaaadHiHiHi::what()const throw()
 {
-    return "MaBaaaadhiiiihihihihi\n";
+    return "MaBaaaadhiiiihihihihi actually the bureaucrat grade it's too low or the form not indicated\n";
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const

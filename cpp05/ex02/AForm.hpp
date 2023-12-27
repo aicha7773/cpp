@@ -29,7 +29,7 @@ class AForm
         AForm(std::string Name, int GradeToSigne ,int GradeToExecute);
         AForm(const  AForm & other);
         AForm & operator =(const  AForm & other);
-        ~AForm();
+        virtual ~AForm();
         class GradeTooHighException : public std::exception
         {
             const char * what () const throw ();

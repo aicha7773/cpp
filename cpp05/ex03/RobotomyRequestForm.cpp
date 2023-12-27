@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 22:02:55 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/25 18:40:08 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/27 02:32:13 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(RobotomyRequestForm &other)
 
 const char *  RobotomyRequestForm::MaBaaadHiHiHi::what()const throw()
 {
-    return "MaBaaaadhiiiihihihihi\n";
+    return "MaBaaaadhiiiihihihihi actually the bureaucrat grade it's too low or the form not indicated\n";
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const

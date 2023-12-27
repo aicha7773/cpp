@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:55:33 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/26 05:38:28 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/27 02:29:39 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm &
 
 const char *  ShrubberyCreationForm::MaBaaadHiHiHi::what()const throw()
 {
-    return "MaBaaaadhiiiihihihihi\n";
+    return "MaBaaaadhiiiihihihihi actually the bureaucrat grade it's too low or the form not indicated\n";
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const

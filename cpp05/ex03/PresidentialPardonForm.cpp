@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 22:23:54 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/25 01:29:14 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/27 02:32:06 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonFor
 
 const char *  PresidentialPardonForm::MaBaaadHiHiHi::what()const throw()
 {
-    return "MaBaaaadhiiiihihihihi\n";
+    return "MaBaaaadhiiiihihihihi actually the bureaucrat grade it's too low or the form not indicated\n";
 }
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const

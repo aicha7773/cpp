@@ -47,7 +47,7 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm &
 
 const char *  ShrubberyCreationForm::MaBaaadHiHiHi::what()const throw()
 {
-    return "MaBaaaadhiiiihihihihi\n";
+    return "MaBaaaadhiiiihihihihi actually the bureaucrat grade it's too low or the form not indicated\n";
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
