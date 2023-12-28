@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 22:02:55 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/27 02:32:13 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/28 18:32:48 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     if(getIndicating() && executor.getGrade() <= getGradeToExecute())
     {
+        srand (time(NULL));
         int r = rand();
         if(r % 2 == 0)
             std::cout<<target<<" has been robotomized successfully\n";

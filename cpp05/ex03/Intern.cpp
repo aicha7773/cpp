@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 04:34:34 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/27 02:40:50 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/28 18:48:32 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ AForm *Intern::makeForm(std::string theForm, std::string the_target)
         }
         delete (ftab[i]);
     }
-    std::cout<<"no Form whit this type";
+    std::cerr<<"no Form whit this type";
     return NULL;
 }
