@@ -11,16 +11,16 @@ OBJ = ${SRC:.cpp=.o}
 
 all : ${NAME}
 
-${NAME} : ${SRC}
+${NAME} : ${SRC} ${OBJ}
 	${CXX} ${CPPFLAGS}  ${SRC} -o ${NAME}
 
 %.o : %.cpp %.hpp
 	${CXX} ${CPPFLAGS}  ${SRC} -c $<
 
 clean :
-	rm -r ${OBJ}
+	rm ${OBJ}
 
 fclean : clean
-	rm -r ${NAME}
+	rm ${NAME}
 
 re : fclean all

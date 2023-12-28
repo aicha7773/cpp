@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:55:33 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/28 17:00:22 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/28 18:07:36 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 
     if(getIndicating() && executor.getGrade() <= getGradeToExecute())
     {
-        std::ofstream outputFile(target + "_shrubbery");
+        std::ofstream outputFile((target + "_shrubbery").c_str());
         if (!outputFile.is_open())
         {
             std::cout << "Error: Could not open the file." << std::endl;

@@ -6,11 +6,11 @@ CXX = c++
 
 SRC = main.cpp Bureaucrat.cpp  Form.cpp
 
-OBJ = {SRC: .cpp=.o}
+OBJ = ${SRC:.cpp=.o}
 
 all : ${NAME}
 
-${NAME} : ${SRC}
+${NAME} : ${SRC} ${OBJ}
 	${CXX} ${CPPFLAGS}  ${SRC} -o ${NAME}
 
 %.o : %.cpp %.hpp

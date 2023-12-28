@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:02:43 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/27 02:45:36 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/28 18:08:37 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main()
 		Bureaucrat b("buro",1);
 		Intern someRandomIntern;
 		AForm* rrf;
-		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 		rrf->beSigned(b);
 		rrf->execute(b);
 		ShrubberyCreationForm sh("targ");

@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:16:41 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/04 18:52:57 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/28 17:56:37 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Bureaucrat::Bureaucrat(const  Bureaucrat & other) : Name(other.Name)
 
 Bureaucrat & Bureaucrat::operator=(const  Bureaucrat & other)
 {
-    std::cout<<"the Bureaucrat assiment operator constractor\n";
+    std::cout<<"the Bureaucrat assiment operator constructor\n";
     if(this != &other)
         Grade = other.Grade;
     return *this;
@@ -44,7 +44,7 @@ Bureaucrat & Bureaucrat::operator=(const  Bureaucrat & other)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout<<"the Bureaucrat destractor constractor\n";
+    std::cout<<"the Bureaucrat destructor\n";
 }
 
 const char * Bureaucrat::GradeTooHighException::what () const throw ()

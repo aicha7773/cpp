@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:56 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/25 19:47:16 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/28 17:39:44 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,7 @@ AForm & AForm::operator=(const  AForm & other)
 {
     std::cout<<"the AForm assiment operator constractor\n";
     if(this != &other)
-    {
-        // indicating = other.indicating;
-        // Name = other.Name;
-        // GradeToExecute = other.GradeToExecute;
-        // GradeToSigne = other.GradeToSigne;
-    }
+        indicating = other.indicating;
     return *this;
 }
 
