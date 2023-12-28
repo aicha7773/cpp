@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:55:33 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/27 02:29:39 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/28 17:00:22 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &other)
 {
     std::cout<<"the ShrubberyCreationForm copy constructor\n";
     if (this != &other)
-    {
         target = other.target;
-    }
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
