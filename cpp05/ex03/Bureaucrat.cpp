@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:16:41 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/25 19:12:39 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/29 08:48:55 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,12 @@ const char * Bureaucrat::GradeTooLowException::what () const throw ()
     return "the grade is so low";
 }
 
-int Bureaucrat::getGrade()const
+int Bureaucrat::getGrade() const
 {
     return Grade;
 }
 
-std::string Bureaucrat::getName()const
+std::string Bureaucrat::getName() const
 {
     return Name;
 }

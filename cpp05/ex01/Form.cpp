@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:31:56 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/28 17:39:15 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/29 11:18:58 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ Form::Form() : Name("init"), GradeToSigne(1) ,GradeToExecute(1)
     indicating = 0;
 }
 
-Form::Form(std::string AName, int AGradeToSigne ,int AGradeToExecute, bool Aind) : Name(AName), GradeToSigne (AGradeToSigne), GradeToExecute(AGradeToExecute) 
+Form::Form(std::string AName, int AGradeToSigne ,int AGradeToExecute) : Name(AName), GradeToSigne (AGradeToSigne), GradeToExecute(AGradeToExecute) 
 {
     std::cout<<"the Form paramtrize constractor\n";
-    indicating = Aind;
+    indicating = false;
     if (GradeToSigne < 0)
          throw Form::GradeTooHighException();
     if (GradeToSigne > 150)
