@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:16:41 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/29 08:48:55 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/30 22:01:43 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,16 +71,16 @@ std::string Bureaucrat::getName() const
 
 void Bureaucrat::incrementGrade()
 {
-    Grade --;
-    if (Grade < 1)
+    if (Grade - 1 < 1)
          throw Bureaucrat::GradeTooHighException();
+    Grade --;
 }
 
 void Bureaucrat::decrementGrade()
 {
-    Grade ++;
-    if (Grade > 150)
+    if (Grade + 1 > 150)
         throw Bureaucrat::GradeTooLowException();
+    Grade ++;
 }
 
 void Bureaucrat::signForm(Form &obj)

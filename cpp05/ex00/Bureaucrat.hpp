@@ -6,9 +6,11 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:08:10 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/04 18:46:05 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/30 20:39:21 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include <iostream>
 #include <exception>

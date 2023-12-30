@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 04:34:34 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/28 18:48:32 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/30 21:59:01 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ Intern& Intern::operator=(Intern &obj)
     return *this;
 }
 
+const char *Intern::FormFailed::what() const throw()
+{
+    return "Form not found";
+}
+
 AForm *Intern::makeForm(std::string theForm, std::string the_target)
 {
     std::string tab[]={"shrubbery creation", "robotomy request", "presidential pardon"};
@@ -50,6 +55,6 @@ AForm *Intern::makeForm(std::string theForm, std::string the_target)
         }
         delete (ftab[i]);
     }
-    std::cerr<<"no Form whit this type";
+    throw Intern::FormFailed();
     return NULL;
 }

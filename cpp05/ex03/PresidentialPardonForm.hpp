@@ -6,10 +6,11 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 22:24:39 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/25 01:29:01 by aatki            ###   ########.fr       */
+/*   Updated: 2023/12/30 20:38:22 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
