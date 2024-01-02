@@ -5,26 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 10:02:43 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/30 22:15:34 by aatki            ###   ########.fr       */
+/*   Created: 2024/01/01 03:37:56 by aatki             #+#    #+#             */
+/*   Updated: 2024/01/02 03:59:33 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "ScalarConverter.hpp"
 
-int main()
+int main(int ac, char **av)
 {
-	Bureaucrat test("test", 150);
-	try
-	{
-		std::cout<<test;
-		test.decrementGrade();
-		std::cout<<test;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	std::cout<<test;
-	return (0);
+    if (ac == 2)
+    {
+        ScalarConverter S;
+        S.convert(av[1]);
+    }
+    return 0;
 }
+

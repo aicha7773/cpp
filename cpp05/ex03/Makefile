@@ -1,6 +1,6 @@
 NAME = Form
 
-CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3 
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror 
 
 CXX = c++
 
@@ -15,7 +15,7 @@ ${NAME} : ${SRC} ${OBJ}
 	${CXX} ${CPPFLAGS}  ${SRC} -o ${NAME}
 
 %.o : %.cpp %.hpp
-	${CXX} ${CPPFLAGS}  ${SRC} -c $<
+	${CXX} ${CPPFLAGS}  -c $<
 
 clean :
 	rm ${OBJ}

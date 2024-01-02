@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 10:02:43 by aatki             #+#    #+#             */
-/*   Updated: 2023/12/30 22:15:34 by aatki            ###   ########.fr       */
+/*   Created: 2024/01/02 00:30:53 by aatki             #+#    #+#             */
+/*   Updated: 2024/01/02 03:59:55 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include <iostream>
 
-int main()
+class ScalarConverter
 {
-	Bureaucrat test("test", 150);
-	try
-	{
-		std::cout<<test;
-		test.decrementGrade();
-		std::cout<<test;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	std::cout<<test;
-	return (0);
-}
+    public:
+    ScalarConverter();
+    ~ScalarConverter();
+    ScalarConverter(ScalarConverter &other);  
+    ScalarConverter & operator=(ScalarConverter & other);
+    void convert(std::string str);
+};
