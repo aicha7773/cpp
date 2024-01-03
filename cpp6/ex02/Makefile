@@ -1,6 +1,6 @@
 NAME = Serializer
 
-SRC = main.cpp Base.cpp A.cpp B.cpp C.cpp
+SRC = main.cpp Base.cpp A.cpp B.cpp C.cpp functions.cpp
 
 OBJ = ${SRC:.cpp=.o}
 

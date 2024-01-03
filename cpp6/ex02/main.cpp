@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 01:33:54 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/03 03:06:08 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/04 00:30:11 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int main()
 {
     Base *ptr = generate();
-    
-    // identify(ptr);
-    // identify(*ptr);
+    identify(*ptr);
+    return 0;
 }

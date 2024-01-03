@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 01:41:05 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/03 02:10:22 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/03 23:39:39 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 class Base
 {
     public :
-        virtual ~Base()=0;
+        virtual ~Base();
+        virtual void getName() = 0;
 };
