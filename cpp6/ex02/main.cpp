@@ -5,20 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 03:37:56 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/02 03:59:33 by aatki            ###   ########.fr       */
+/*   Created: 2024/01/03 01:33:54 by aatki             #+#    #+#             */
+/*   Updated: 2024/01/03 03:06:08 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Functions.hpp"
 
-int main(int ac, char **av)
+int main()
 {
-    if (ac == 2)
-    {
-        ScalarConverter S;
-        S.convert(av[1]);
-    }
-    return 0;
+    Base *ptr = generate();
+    
+    // identify(ptr);
+    // identify(*ptr);
 }
-
