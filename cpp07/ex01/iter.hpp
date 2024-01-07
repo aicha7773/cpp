@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/07 04:16:33 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/07 05:00:23 by aatki            ###   ########.fr       */
+/*   Created: 2024/01/07 05:07:59 by aatki             #+#    #+#             */
+/*   Updated: 2024/01/07 05:39:17 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,15 @@
 
 template <typename T>
 
-void swap(T &t1,T &t2)
+void function(T &t)
 {
-    T tmp;
-    tmp = t1;
-    t1 = t2;
-    t2 = tmp;
+    std::cout<<t<<std::endl;
 }
 
 template <typename T>
 
-T& min(T &t1,T &t2)
+void iter(T *tab,unsigned int size ,void (*function)(T &t))
 {
-    if (t1 < t2)
-        return t1;
-    else
-        return t2;
-}
-
-template <typename T>
-
-T& max(T &t1,T &t2)
-{
-    if (t1 > t2)
-        return t1;
-    else
-        return t2;
+    for (unsigned int i=0; i< size ;i++)
+        function(tab[i]);
 }

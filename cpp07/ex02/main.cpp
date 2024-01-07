@@ -1,43 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/07 04:16:33 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/07 05:00:23 by aatki            ###   ########.fr       */
+/*   Created: 2024/01/07 05:43:45 by aatki             #+#    #+#             */
+/*   Updated: 2024/01/07 06:24:27 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Array.hpp"
 
-template <typename T>
-
-void swap(T &t1,T &t2)
+int main()
 {
-    T tmp;
-    tmp = t1;
-    t1 = t2;
-    t2 = tmp;
-}
+    Array<int> ar(3);
 
-template <typename T>
-
-T& min(T &t1,T &t2)
-{
-    if (t1 < t2)
-        return t1;
-    else
-        return t2;
-}
-
-template <typename T>
-
-T& max(T &t1,T &t2)
-{
-    if (t1 > t2)
-        return t1;
-    else
-        return t2;
+    ar.tab[0]=1;
+    ar.tab[1]=2;
+    ar.tab[2]=3;
+    for (int i=0;i<3;i++)
+        std::cout<<ar.tab[i]<<std::endl;
 }
