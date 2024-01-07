@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 05:43:48 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/07 06:30:51 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/07 06:36:33 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,10 @@ class Array
         {
             return asize;
         }
-        class OutOfSize : public std::exception
-        {
-            public :
-            const char *what() throw()
-            {
-                return "out of rang OOOOooops\n";
-            }
-        };
-        T& operator[](int indx)
+        T& operator[](unsigned int indx)
         {
             if (indx >= asize || indx < 0)
-                throw Array::OutOfSize();
+                throw std::runtime_error("out of range");
             return tab[indx];
         }
 };

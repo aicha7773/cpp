@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 05:43:45 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/07 06:24:27 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/07 06:37:27 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 int main()
 {
     Array<int> ar(3);
-
-    ar.tab[0]=1;
-    ar.tab[1]=2;
-    ar.tab[2]=3;
+    try{
+        
+    ar[7]=1;
+    ar[1]=2;
+    ar[2]=3;
     for (int i=0;i<3;i++)
-        std::cout<<ar.tab[i]<<std::endl;
+        std::cout<<ar[i]<<std::endl;
+    }
+    catch(std::exception& e){
+        std::cout << e.what() << std::endl;
+    }
 }
