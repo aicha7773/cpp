@@ -14,17 +14,17 @@
 
 Serializer::Serializer()
 {
-    // std::cout<<"the Serializer Default constructor\n";
+    std::cout<<"the Serializer Default constructor\n";
 }
 
 Serializer::~Serializer()
 {
-    // std::cout<<"the Serializer Destructor\n";
+    std::cout<<"the Serializer Destructor\n";
 }
 
 Serializer::Serializer(Serializer &other)
 {
-    // std::cout<<"the Serializer copy constructor\n";
+    std::cout<<"the Serializer copy constructor\n";
     if (this != &other)
     {
         
@@ -33,7 +33,7 @@ Serializer::Serializer(Serializer &other)
 
 Serializer & Serializer::operator=(Serializer & other)
 {
-    // std::cout<<"the Serializer assiment operator\n";
+    std::cout<<"the Serializer assiment operator\n";
     if (this != &other)
     {
         

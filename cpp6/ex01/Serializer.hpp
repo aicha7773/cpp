@@ -19,11 +19,12 @@ typedef struct
 
 class Serializer
 {
+    private:
+        Serializer();
+        ~Serializer();
+        Serializer(Serializer &other);  
+        Serializer & operator=(Serializer & other);
     public:
-    Serializer();
-    ~Serializer();
-    Serializer(Serializer &other);  
-    Serializer & operator=(Serializer & other);
-    uintptr_t serialize(Data* ptr);
-    Data* deserialize(uintptr_t raw);
+        static uintptr_t serialize(Data* ptr);
+        static Data* deserialize(uintptr_t raw);
 };

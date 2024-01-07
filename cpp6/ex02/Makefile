@@ -1,10 +1,10 @@
 NAME = Serializer
 
-SRC = main.cpp Base.cpp A.cpp B.cpp C.cpp functions.cpp
+SRC = main.cpp Base.cpp  functions.cpp
 
 OBJ = ${SRC:.cpp=.o}
 
-CPPFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CXX = c++
 
@@ -14,12 +14,12 @@ ${NAME} : ${SRC} ${OBJ}
 	${CXX} ${CPPFLAGS} ${SRC} -o ${NAME}
 
 %.o : %.cpp %.hpp
-	${CXX} ${CPPFLAGS} -c $< 
+	${CXX} ${CPPFLAGS} -c $<
 
 clean :
-	rm -r ${OBJ}
+	rm -f ${OBJ}
 
 fclean : clean
-	rm -r ${NAME}
+	rm -f ${NAME}
 
 re: fclean all

@@ -6,16 +6,11 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 01:57:35 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/03 23:35:08 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/06 20:37:17 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "Base.hpp"
 
-class C : public Base
-{
-    public :
-        ~C();
-        void getName();
-};
+class C : public Base{};
