@@ -13,7 +13,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 ${NAME} : ${SRC} ${OBJ}
 	${CXX} ${CPPFLAGS} ${SRC} -o ${NAME}
 
-%.o : %.cpp %.hpp
+main.o : main.cpp whatever.hpp
 	${CXX} ${CPPFLAGS} -c $<
 
 clean :
