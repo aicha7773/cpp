@@ -8,7 +8,7 @@ all : ${NAME}
 
 CXX = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 ${NAME} : ${SRC} ${OBJ}
 	${CXX} ${CPPFLAGS} ${SRC} -o ${NAME}
