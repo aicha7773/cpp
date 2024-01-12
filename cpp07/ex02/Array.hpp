@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 05:43:48 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/09 18:43:11 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/12 00:27:24 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ class Array
             return asize;
         }
         T& operator[](unsigned int indx)
+        {
+            if (indx >= asize)
+                throw std::runtime_error("out of range");
+            return tab[indx];
+        }
+        const T& operator[](unsigned int indx) const
         {
             if (indx >= asize)
                 throw std::runtime_error("out of range");

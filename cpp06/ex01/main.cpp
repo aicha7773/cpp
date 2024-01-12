@@ -5,26 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/07 05:43:45 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/12 01:34:39 by aatki            ###   ########.fr       */
+/*   Created: 2024/01/01 03:37:56 by aatki             #+#    #+#             */
+/*   Updated: 2024/01/06 20:35:31 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Array.hpp"
+#include "Serializer.hpp"
 
 int main()
 {
-    Array<int> ar(3);
-    Array<int> ar2(3);
-    try{
-        ar[0]=1;
-        ar[1]=9000000;
-        int o=ar[2]=3;
-        std::cout<<o<<std::endl;
-    for (int i=0;i<3;i++)
-        std::cout<<ar[i]<<std::endl;
-    }
-    catch(std::exception& e){
-        std::cout << e.what() << std::endl;
-    }
+    Data *d = new  Data;
+    d->k=9;
+
+    std::cout<<d<<std::endl;
+    uintptr_t u =  Serializer::serialize(d);
+    std::cout<<u<<std::endl;
+    Serializer::deserialize(u);
+    std::cout<<"d->k = "<<d->k<<std::endl;
+    delete d;
+    return 0;
 }

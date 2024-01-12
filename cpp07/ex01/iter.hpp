@@ -6,23 +6,25 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 05:07:59 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/09 03:59:31 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/12 01:36:39 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-template <typename U>
+template <typename X>
 
-void function(U &t)
+void function(const X &t)
 {
     std::cout<<t<<std::endl;
 }
 
-template <typename T, typename U>
+template <typename T,typename U>
 
-void iter(T *tab,unsigned int size ,void (*function)(U t))
+void iter(T *tab,unsigned int size ,void (*function)(const U & t))
 {
+    if (!tab || !function)
+        return ;
     for (unsigned int i=0; i< size ;i++)
         function(tab[i]);
 }

@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 05:07:29 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/09 18:25:26 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/12 00:26:22 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-    int tab[]={1,2,3};
-    iter(tab, 3, &function<unsigned int>);
+    const int tab[]={1,2,3};
+    iter(tab, 3, function<int>);
 }
 
