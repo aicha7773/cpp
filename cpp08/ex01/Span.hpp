@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 00:30:53 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/02 03:59:55 by aatki            ###   ########.fr       */
+/*   Created: 2024/01/12 09:56:29 by aatki             #+#    #+#             */
+/*   Updated: 2024/01/12 12:18:10 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <vector>
 
-class ScalarConverter
+class Span
 {
+    private:
+        unsigned int N;
+        std::vector <int> vec;
     public:
-    ScalarConverter();
-    ~ScalarConverter();
-    ScalarConverter(ScalarConverter &other);  
-    ScalarConverter & operator=(ScalarConverter & other);
-    void convert(std::string str);
+        Span();
+        Span(unsigned int N);
+        Span(Span &other);
+        ~Span();
+        Span &operator=(Span &other);
+        void addNumber();
+        int shortestSpan();
+        int longestSpan();
 };
