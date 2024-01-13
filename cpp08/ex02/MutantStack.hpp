@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Span.hpp                                           :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 09:56:29 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/13 12:06:35 by aatki            ###   ########.fr       */
+/*   Created: 2024/01/13 12:47:37 by aatki             #+#    #+#             */
+/*   Updated: 2024/01/13 13:31:07 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <vector>
-#include <algorithm>
 
-class Span
+template<typename T>
+
+class MutantStack : public std::stack
 {
     private:
         unsigned int N;
-        std::vector <int> vec;
+        T *stack;
+        unsigned int asize;
     public:
-        Span();
-        Span(unsigned int N);
-        Span(Span &other);
-        ~Span();
-        Span &operator=(Span &other);
-        void addNumber(int number);
-        void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
-        int shortestSpan();
-        int longestSpan();
-};
+        MutantS tack(){N = 0; size = 0; T = new T}
+        MutantStack(MutantStack &other){N = other.N;}
+        MutantStack & operator=(MutantStack &other);
+        ~MutantStack();
+}

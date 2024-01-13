@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 09:56:35 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/13 09:22:51 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/13 12:06:08 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ Span::Span(unsigned int N)
 
 Span::Span(Span &other)
 {
+    std::cout<<"heere\n";
     if (this != &other)
     {
-        N = other.N; 
-        vec = other.vec;
+        N = other.N;
+        vec.assign(other.vec.begin(), other.vec.end());
     }
 }
 
@@ -42,23 +43,31 @@ Span & Span::operator=(Span &other)
     if (this != &other)
     {
         N = other.N;
-        vec = other.vec;
+        vec.assign(other.vec.begin(), other.vec.end());
     }
     return *this;
 }
 
+void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+    if (vec.size() + (end - begin) > N)
+        throw std::runtime_error("the vector is  already Full\n");
+    vec.insert(vec.end(), begin, end);
+}
+
 void Span::addNumber(int number)
 {
-    if (vec.size() + 1 >= N)
+    if (vec.size() + 1 > N)
         throw std::runtime_error("the vector is  already Full\n");
     vec.push_back(number);
 }
 
 int Span::shortestSpan()
 {
-    vec.sort();
-    int min=vec[2] - vec[1];
-    for (std::vector<int>::iterator i = vec.begin(); i != vec.end() ;i++)
+    std::vector <int> copy(vec);
+    std::sort(copy.begin(),copy.end());
+    int min = copy[1] - copy[0];
+    for (std::vector<int>::iterator i = copy.begin(); i != copy.end() - 1 ;i++)
     {
         if (min > *(i +  1) - *i)
             min = *(i +  1) - *i;
@@ -66,9 +75,9 @@ int Span::shortestSpan()
     return min;
 }
 
-// int Span::longestSpan()
-// {
-//     std::vector <int> copy(vec);
-//     copy.sort();
-//     return (copy.[copy.size()] - copy.[0]);
-// }
+int Span::longestSpan()
+{
+    std::vector <int> copy(vec);
+    std::sort(copy.begin(),copy.end());
+    return (copy[copy.size() - 1] - copy[0]);
+}
