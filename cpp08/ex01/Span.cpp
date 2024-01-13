@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 09:56:35 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/12 11:47:53 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/13 09:22:51 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ Span::Span(Span &other)
 {
     if (this != &other)
     {
-        N = other->N;
-        for (auto i=vec.begin();  i != vec.end(); i++)
-            vec.push_back(other.vec.data());
+        N = other.N; 
+        vec = other.vec;
     }
 }
 
@@ -42,28 +41,34 @@ Span & Span::operator=(Span &other)
     vec.clear();
     if (this != &other)
     {
-        N = other->N;
-        for (auto i=vec.begin();  i != vec.end(); i++)
-            vec.push_back(other.vec.data());
+        N = other.N;
+        vec = other.vec;
     }
     return *this;
 }
 
 void Span::addNumber(int number)
 {
-    if (size + 1 >= N)
+    if (vec.size() + 1 >= N)
         throw std::runtime_error("the vector is  already Full\n");
     vec.push_back(number);
 }
 
 int Span::shortestSpan()
 {
-    auto i;
-    for (i=vec.begin();  i != vec.end(); ++i){}
-    return i;
+    vec.sort();
+    int min=vec[2] - vec[1];
+    for (std::vector<int>::iterator i = vec.begin(); i != vec.end() ;i++)
+    {
+        if (min > *(i +  1) - *i)
+            min = *(i +  1) - *i;
+    }
+    return min;
 }
 
-int Span::longestSpan()
-{
-    
-}
+// int Span::longestSpan()
+// {
+//     std::vector <int> copy(vec);
+//     copy.sort();
+//     return (copy.[copy.size()] - copy.[0]);
+// }

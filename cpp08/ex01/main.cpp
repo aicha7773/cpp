@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 09:56:32 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/12 11:50:26 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/12 18:15:38 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-    Span sp = Span(5);
+    Span sp(5);
     sp.addNumber(6);
     sp.addNumber(3);
     sp.addNumber(17);

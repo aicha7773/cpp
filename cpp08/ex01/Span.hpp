@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 09:56:29 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/12 12:18:10 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/12 18:16:01 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Span
         Span(Span &other);
         ~Span();
         Span &operator=(Span &other);
-        void addNumber();
+        void addNumber(int number);
         int shortestSpan();
         int longestSpan();
 };
