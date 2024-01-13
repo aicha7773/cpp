@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 12:47:37 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/13 13:31:07 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/13 16:47:16 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 template<typename T>
 
-class MutantStack : public std::stack
+class MutantStack : public std::stack <T, >
 {
     private:
         unsigned int N;
@@ -25,4 +25,5 @@ class MutantStack : public std::stack
         MutantStack(MutantStack &other){N = other.N;}
         MutantStack & operator=(MutantStack &other);
         ~MutantStack();
+        typedef typename T::iterator iterator;
 }
