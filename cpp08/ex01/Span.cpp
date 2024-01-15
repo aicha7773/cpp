@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 09:56:35 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/13 12:06:08 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/15 18:55:17 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,8 @@ Span::Span(unsigned int N)
 
 Span::Span(Span &other)
 {
-    std::cout<<"heere\n";
-    if (this != &other)
-    {
-        N = other.N;
-        vec.assign(other.vec.begin(), other.vec.end());
-    }
+    N = other.N;
+    vec.assign(other.vec.begin(), other.vec.end());
 }
 
 Span::~Span()

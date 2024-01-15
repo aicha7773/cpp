@@ -6,12 +6,15 @@ OBJ =${SRC:.cpp=.o}
 
 CCXX = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 all : ${NAME}
 
-${NAME} : ${SRC} ${OBJ} MutantStack.hpp
-	${CXX} ${CPPGLAGS} ${SRC} -o ${NAME}
+%.o :  %.cpp MutantStack.hpp
+	${CXX} ${CXXFLAGS} -c $< -o $@  
+
+${NAME} : ${SRC} ${OBJ} 
+	${CXX} ${CXXFLAGS} ${SRC} -o ${NAME}
 
 clean : 
 	rm -f ${OBJ}
