@@ -6,62 +6,73 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:37:38 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/17 23:49:00 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/18 14:18:23 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-std::map<std::string,int>    ParsingData()
+int printError(std::string errormessage)
 {
-    std::map <std::string,int> mapy;
+    std::cout<<errormessage<<std::endl;
+    return 0;
+
+}
+long double toDouble(std::string numStr)
+{
+    std::stringstream ss;
+    long double num;
+
+    ss << numStr;
+    ss >> num;
+    return num;
+}
+
+std::map<std::string, double>    ParsingData()
+{
+    std::map <std::string, double> mapy;
     std::string line;
     std::ifstream data("data.csv");
     if (data.is_open())
     {
         getline(data,line);
         while (getline(data,line))
-            mapy[line.substr(0,10)] = stoi(line.substr(11,line.size() - 11));
+            mapy[line.substr(0,10)] = toDouble(line.substr(11,line.size() - 10));
     }
     else
-        std::cout<<"Unable to open file\n";
+        printError("Unable to open file");
     return mapy;
 }
 
-int isKabissa(int annee)
-{
-    if ((annee - 2008) % 4 == 0)
-        return 1;
-    return 0;
-}
-
-int CheckRanges(long long *tab)
+int CheckRanges(long double *tab)
 {
     if (tab [0] < 2009 || tab[0] > 2022)
-        return 0;
+        return printError("year is out of rang");
     if (tab [1] < 1|| tab[1] > 12)
-        return 0;
+        return printError("month is out of rang");
     if (tab [2] < 1 || tab[2] > 31)
-        return 0;
+        return printError("day is out of rang");
     if (tab [3] < 0 || tab[3] > 1000)
-        return 0;
+        return printError("value is out of rang");
     if (tab[1] == 2 && tab[2] > 29)
-        return 0;
-    if (!isKabissa(tab[0]) && tab[1] == 2 && tab[2] == 29)
-        return 0;
+        return printError("it's february b****");
+    if ((int)(tab[0] - 2008) % 4 != 0 && tab[1] == 2 && tab[2] == 29)
+        return printError("guess what it's a leap year");
     if (tab[2] > 30 && (tab[1] != 1 && tab[1] != 3 && tab[1] != 5 &&tab[1] != 7 &&tab[1] != 8 && tab[1] != 10 && tab[1] != 12) )
-        return 0;
+        return printError("not in this month");
     return 1;
 }
 
+
 int CheckLine(std::string line)
 {
+    long double tab[4];
     unsigned int i=0;
-    long long tab[4];
+
     if (line.size() < 13)
-        return 0;
+        return printError("bad format");
     if (line[4] != '-' || line[7] != '-' || line[10] != ' ' || line[11] != '|' || line[12] != ' ')
-        return 0;
+        return printError("bad format");
     line[4] = '1';
     line[7] = '1';
     line[10] = '1';
@@ -70,29 +81,28 @@ int CheckLine(std::string line)
     while(!line.empty() && i < 13)
     {
         if(!isdigit(line[i]))
-            return 0;
+            return printError("it should be a digit");
         i++;
     }
     while(i < line.size())
     {
         if(!isdigit(line[i]) && line[i] != '.' && line[i] != '-' && line[i] != '+')
-            return 0;
+            return printError("it should be a digit");
         i++;
     }
-    tab[0] = stoi(line.substr(0,4));
-    tab[1] = stoi(line.substr(5,2));
-    tab[2] = stoi(line.substr(8,2));
-    tab[3] = stoi(line.substr(13,line.size() - 12));
-    std::cout<<tab[0]<<" "<<tab[1]<<" "<<tab[2]<<' '<<tab[3]<<"fiiin\n";
+    tab[0] = toDouble(line.substr(0,4));
+    tab[1] = toDouble(line.substr(5,2));
+    tab[2] = toDouble(line.substr(8,2));
+    tab[3] = toDouble(line.substr(13,line.size() - 12));
     return CheckRanges(tab);
     return 1;
 }
 
 void ParsingInputFile(std::string input)
 {
-    std::map<<std::string, int> mapy = ParsingData();
+    std::map<std::string, double> mapy = ParsingData();
     std::string line;
-    int value;
+    double value;
     std::ifstream myfile (input.c_str());
     if (myfile.is_open())
     {
@@ -104,16 +114,14 @@ void ParsingInputFile(std::string input)
         }
         while (getline (myfile,line))
         {
-            value =  mapy[line.substr(0,10)] * stoi(line.substr(13,line.size() - 12));
             if (!CheckLine(line))
-            {
-                std::cout <<"an error has been occurend\n";
-                return ;
-            }
-            std::cout<<line.substr(0,10)<<" = "<<value<<std::endl;
+                continue ;
+            std::map<std::string, double>::iterator UP = mapy.upper_bound(line.substr(0,10));
+            UP--;
+            value =  UP->second * toDouble(line.substr(13,line.size() - 12));
+            std::cout<<line.substr(0,10)<<" => "<<line.substr(13,line.size() - 12)<<" = "<<value<<std::endl;
         }
         myfile.close();
-        std::cout <<"everyting workin clean\n";
     }
     else
         std::cout << "Unable to open file\n";
