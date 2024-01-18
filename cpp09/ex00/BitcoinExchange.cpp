@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:37:38 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/18 14:18:23 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/18 14:22:12 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int printError(std::string errormessage)
     return 0;
 
 }
+
 long double toDouble(std::string numStr)
 {
     std::stringstream ss;
@@ -62,7 +63,6 @@ int CheckRanges(long double *tab)
         return printError("not in this month");
     return 1;
 }
-
 
 int CheckLine(std::string line)
 {
