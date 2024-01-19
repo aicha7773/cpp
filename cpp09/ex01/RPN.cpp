@@ -6,21 +6,11 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:33:13 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/18 19:56:30 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/19 23:13:12 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
-
-long double toDouble(std::string numStr)
-{
-    std::stringstream ss;
-    long double num;
-
-    ss << numStr;
-    ss >> num;
-    return num;
-}
 
 int ErrorChecker(std::string input)
 {
@@ -38,52 +28,89 @@ int ErrorChecker(std::string input)
     return 0;
 }
 
-long double generateNum(std::string part, int *i)
+int  toInt(std::string numStr)
 {
-    std::string tmp = "";
+    std::stringstream ss(numStr);
+    int  num=0;
 
-    while (isdigit(partt[*i]) || partt[*i] == ' ')
+    if (!(ss >> num))
+        return 8888888;
+    return num;
+}
+
+void  generateNum(std::stack<int> &stk, std::string part, unsigned int &i)
+{
+    if (i >= part.size())
+        return ;
+    std::string tmp = "";
+    int k=0;
+    while (i < part.size() && part[i] == ' ')
+            i++;
+    while (i < part.size() && isdigit(part[i]))
     {
-        if (isdigit(partt[*i]))
-            tmp += partt[*i];
-        *i++;
+        if (isdigit(part[i]))
+            tmp += part[i];
+        i++;
+        k++;
     }
-    return toDouble(tmp);
-    
+    if (k)
+        stk.push(toInt(tmp));
+}
+
+void operators(std::stack<int> &stk, std::string input,unsigned int &i)
+{
+    int  popHere;
+    int  popHere2;
+    if (i < input.size() && stk.size() >= 2 && (input[i] == '+' || input[i] == '/' || input[i] == '*' || input[i] == '-'))
+    {
+        popHere = stk.top();
+        stk.pop();
+        popHere2 = stk.top();
+        stk.pop();
+        if (input[i] == '+')
+            stk.push(popHere + popHere2);
+        if (input[i] == '*')
+            stk.push(popHere * popHere2);
+        if (input[i] == '-')
+            stk.push(popHere2 - popHere);
+        if (input[i] == '/')
+        {
+            if(popHere != 0)
+                stk.push(popHere / popHere2);
+            else
+            {
+                std::cerr<<"Error"<<std::endl;
+                return ;
+            }
+        }
+        i++;
+        std::cout<<"stk size = "<<stk.size()<<"    stk value"<<stk.top()<<std::endl;
+    }
 }
 
 void calculator(std::string input)
 {
-    long double result = 0;
+    std::stack<int > stk;
+    int  result = 0;
     unsigned int i = 0;
-    long double tmpNum;
-    long double tmpNum2;
-    int j=0;
-    std::stack<long double> stk;
 
     if (ErrorChecker(input))
         return ;
-    while(i < input.size() && (i == '+' || i == '*' || i == '/' || i == '-'))
-        i++;
     while(i < input.size())
     {
-        tmpNum = generate(input , &i);
-        if (input[i] == '*' || input[i] == '/')
-        {
-            if (input[i - 1] == '*')
-                stk[j] *= tmpNum;
-            else
-                stk[j] /= tmpNum;
-            j--;
-        }
-        else
-            stk.push(tmp);
-        j++;
-        i++;
+        while (i < input.size() && input[i] == ' ')
+            i++;
+        operators(stk,input,i);
+        generateNum(stk, input , i);
+        while (i < input.size() && input[i] == ' ')
+            i++;
+        operators(stk,input,i);
     }
-    // for(std::stack<long double>::iterator it = stk.begin(); it != stk.end() ; it++)
-    // {
-    //     std::cout<<*it<<std::endl;
-    // }
+    if (stk.size() != 1)
+    {
+        std::cerr<<"Error heeere"<<std::endl;
+        return ;
+    }
+    result = stk.top();
     std::cout<<"result = "<<result<<std::endl;
 }
