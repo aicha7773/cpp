@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:37:38 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/18 14:22:12 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/21 01:52:39 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int printError(std::string errormessage)
 {
     std::cout<<errormessage<<std::endl;
     return 0;
-
 }
 
 long double toDouble(std::string numStr)

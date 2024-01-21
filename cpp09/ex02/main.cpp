@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 15:37:14 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/21 01:52:36 by aatki            ###   ########.fr       */
+/*   Created: 2024/01/20 16:34:12 by aatki             #+#    #+#             */
+/*   Updated: 2024/01/21 22:29:33 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<iostream>
-#include<fstream>
-#include<string>
-#include<map>
-#include<sstream>
+#include "PmergeMe.hpp"
 
-void ParsingInputFile(std::string input);
+int main(int ac, char **av)
+{
+    (void)ac;
+    try
+    {
+        putItIn(++av);
+    }
+    catch (const std::exception &e)
+    {
+        std::cout<<e.what();
+    }
+}
