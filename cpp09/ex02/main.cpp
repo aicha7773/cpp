@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 16:34:12 by aatki             #+#    #+#             */
-/*   Updated: 2024/01/21 22:29:33 by aatki            ###   ########.fr       */
+/*   Updated: 2024/01/22 01:19:33 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int main(int ac, char **av)
 {
-    (void)ac;
-    try
+    if (ac > 1)
     {
-        putItIn(++av);
-    }
-    catch (const std::exception &e)
-    {
-        std::cout<<e.what();
+        try
+        {
+            putItIn(++av);
+        }
+        catch (const std::exception &e)
+        {
+            std::cout<<e.what();
+        }
     }
 }
